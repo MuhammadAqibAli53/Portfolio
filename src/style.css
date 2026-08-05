@@ -462,21 +462,21 @@ button:focus {
   height: auto !important;
 }
 
+/* Sleek Glassmorphism Project Cards */
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.45) !important;
-  color: white !important;
-  background-color: #1e1e1e !important;
-  border: 1px solid rgba(245, 158, 11, 0.15) !important;
-  opacity: 0.9 !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
+  color: #f8fafc !important;
+  background: linear-gradient(145deg, #18181b, #121212) !important;
+  border: 1px solid rgba(245, 158, 11, 0.18) !important;
+  border-radius: 16px !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .project-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 15px 2px rgba(245, 158, 11, 0.25) !important;
-  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  transform: translateY(-6px) !important;
+  border: 1px solid rgba(245, 158, 11, 0.6) !important;
+  box-shadow: 0 20px 35px -10px rgba(245, 158, 11, 0.2) !important;
 }
 
 .blog-card {
@@ -562,26 +562,20 @@ button:focus {
 }
 
 .tech-icons {
-  display: flex !important;
-  align-self: center !important;
-  justify-content: center !important;
-  font-size: 1rem !important;
-  margin: 15px !important;
-  padding: 10px 20px !important;
-  opacity: 0.93 !important;
-  background-color: #1e1e1e !important;
-  outline: 1.7px solid rgba(245, 158, 11, 0.3) !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-  border-radius: 12px !important;
-  box-shadow: 4px 5px 10px 0px rgba(0, 0, 0, 0.4) !important;
-  overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
-  width: fit-content !important;
-  cursor: pointer !important;
-  color: white;
+  background: rgba(24, 24, 27, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  padding: 14px 24px !important;
+  margin: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
 }
 
+.tech-icons:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25) !important;
+}
 .tech-icons-text {
   display: flex;
   align-items: center;
