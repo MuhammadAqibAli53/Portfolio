@@ -13,37 +13,41 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I’m a Software Engineer who loves transforming ideas into
-              reliable, scalable products. Over time, I’ve explored several
-              technologies and found my passion in building high-performance
-              systems and intuitive user experiences.
+              I am a Software Engineer who bridges the gap between scalable full-stack web architectures and intelligent AI/ML systems.
               <br />
               <br />
-              I’m proficient in
+              I am fluent in core languages and technologies including
               <i>
                 <b className="purple">
                   {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
+                  JavaScript/TypeScript, PHP, Python, and C++{" "}
                 </b>
               </i>
-              — and I enjoy working across both backend and frontend stacks.
+              — allowing me to build across the entire stack.
               <br />
               <br />
-              My key areas of interest include developing
+              My key areas of expertise include developing decoupled
               <i>
                 <b className="purple">
                   {" "}
-                  Web Applications, Blockchain Solutions,{" "}
+                  Full-Stack Web Applications (React.js & Laravel PHP),{" "}
                 </b>
               </i>
-              and exploring new ways to bridge on-chain and off-chain systems.
-              <br />
-              <br />
-              Whenever possible, I love building projects with
-              <b className="purple"> Node.js </b> and modern frameworks like{" "}
+              designing custom
               <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
+                <b className="purple">
+                  {" "}
+                  Machine Learning & Deep Learning models,{" "}
+                </b>
+              </i>
+              and building algorithmic automation tools.
+              <br />
+              <br />
+              Whenever possible, I apply my passion for clean architecture by developing modern SPAs with
+              <b className="purple"> React.js </b> and robust REST APIs using{" "}
+              <i>
+                <b className="purple">Laravel PHP</b> and the{" "}
+                <b className="purple">MERN Stack</b>.
               </i>
             </p>
           </Col>

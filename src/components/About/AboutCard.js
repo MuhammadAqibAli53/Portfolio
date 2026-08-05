@@ -8,37 +8,35 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi everyone! I’m <span className="purple">Soumyajit Behera</span>{" "}
-            from <span className="purple">Bhubaneswar, India</span>.
+            Hi everyone! I am <span className="purple">Muhammad Aqib Ali</span>{" "}
+            from <span className="purple">Gujranwala, Pakistan</span>.
             <br />
-            I’m currently working as a{" "}
-            <span className="purple">Software Developer</span> at{" "}
-            <span className="purple">Juspay</span>.
-            <br />I hold an Integrated M.Sc. (IMSc) in{" "}
-            <span className="purple">Mathematics and Computing</span> from{" "}
-            <span className="purple">BIT Mesra</span>.
+            I am a Software Engineer and Computer Science student specializing in{" "}
+            <span className="purple">Full-Stack Web Development</span> and{" "}
+            <span className="purple">Artificial Intelligence / Machine Learning</span>.
+            <br />
+            I build modern, decoupled web applications using <span className="purple">React.js</span> on the frontend and robust RESTful APIs with <span className="purple">Laravel PHP</span> and <span className="purple">Node.js</span>.
             <br />
             <br />
-            Outside of coding, I love engaging in activities that keep me
-            creative and inspired:
+            Beyond standard web development, I actively work on:
           </p>
 
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Playing Games 🎮
+              <ImPointRight /> Deep Learning & Machine Learning Model Engineering
             </li>
             <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs ✍️
+              <ImPointRight /> Algorithmic Trading Bots & Expert Advisors
             </li>
             <li className="about-activity">
-              <ImPointRight /> Traveling and Exploring New Places 🌍
+              <ImPointRight /> Systems Programming & Compiler Design
             </li>
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
-            "Strive to build things that make a difference!"{" "}
+            "Strive to engineer intelligent systems that solve real-world problems!"{" "}
           </p>
-          <footer className="blockquote-footer">Soumyajit</footer>
+          <footer className="blockquote-footer">Muhammad Aqib Ali</footer>
         </blockquote>
       </Card.Body>
     </Card>
