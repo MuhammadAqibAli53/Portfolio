@@ -6,15 +6,16 @@ function Type() {
     <Typewriter
       options={{
         strings: [
-          "Full-Stack Web Developer",
-          "AI / ML & Deep Learning Engineer",
-          "React.js & Laravel PHP Specialist",
-          "MERN Stack Developer",
-          "Algorithmic & Systems Programmer",
+          "Senior Full-Stack Developer",
+          "AI & Machine Learning Engineer",
+          "React.js & Laravel Specialist",
+          "MERN Stack Architect",
+          "Systems & Automation Engineer",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 40,
+        delay: 60,
       }}
     />
   );
