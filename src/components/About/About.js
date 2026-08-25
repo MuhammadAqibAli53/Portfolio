@@ -6,13 +6,6 @@ import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
-import cvPdf from "../../Assets/cv_aqib.pdf";
-import {
-  AiOutlineDownload,
-  AiOutlineMail,
-  AiOutlineLinkedin,
-  AiOutlineGithub,
-} from "react-icons/ai";
 
 const professionalHighlights = [
   {
@@ -49,6 +42,7 @@ const coreCompetencies = [
     items: [
       "Node.js / Express.js APIs",
       "Laravel PHP Development",
+      "Python flask",
       "RESTful API Design & Security",
       "Database Design (SQL & NoSQL)",
       "Microservices & Scaling",
@@ -57,7 +51,7 @@ const coreCompetencies = [
   {
     title: "AI / Machine Learning",
     items: [
-      "Deep Learning (TensorFlow, PyTorch)",
+      "Deep Learning (TensorFlow, PyTorch, CNNs, ANNs, RNNs)",
       "Natural Language Processing",
       "Computer Vision Applications",
       "Predictive Analytics & Modeling",
@@ -91,6 +85,7 @@ const focusAreas = [
   "PyTorch",
   "Machine Learning",
   "Deep Learning",
+  "Model training",
   "Docker",
 ];
 
@@ -104,7 +99,7 @@ function About() {
             <span className="section-chip">About Me</span>
             <h1 className="about-hero-title">
               A closer look at my{" "}
-              <span className="purple">journey & expertise</span>
+              <span className="purple">journey &amp; expertise</span>
             </h1>
             <p className="about-hero-subtitle">
               A software engineer dedicated to turning ambitious ideas into
@@ -116,14 +111,18 @@ function About() {
             {professionalHighlights.map((item) => (
               <Col md={3} sm={6} xs={12} key={item.label} className="mb-4">
                 <div className="about-highlight-card">
-                  <span className="about-highlight-number">{item.number}</span>
+                  <span className="about-highlight-number">
+                    {item.number}
+                  </span>
                   <span className="about-highlight-label">{item.label}</span>
                 </div>
               </Col>
             ))}
           </Row>
 
-          <Row style={{ justifyContent: "center", padding: "10px 0 30px" }}>
+          <Row
+            style={{ justifyContent: "center", padding: "10px 0 30px" }}
+          >
             <Col
               md={7}
               style={{
@@ -146,56 +145,6 @@ function About() {
               style={{ paddingTop: "60px", paddingBottom: "50px" }}
               className="about-img about-img-wrapper"
             >
-              <div className="about-cta-card">
-                <h3>Ready to work together?</h3>
-                <p>
-                  I&apos;m currently accepting new freelance projects and
-                  full-time opportunities. Let&apos;s build something great.
-                </p>
-                <div className="about-cta-actions">
-                  <a
-                    href={cvPdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-action primary-action"
-                  >
-                    <AiOutlineDownload className="hero-action-icon" /> Download CV
-                  </a>
-                </div>
-                <div className="about-cta-contact">
-                  <h4>Connect with me</h4>
-                  <div className="about-cta-contact-links">
-                    <a
-                      href="mailto:your.email@example.com"
-                      className="contact-link"
-                      aria-label="Email"
-                      title="Email"
-                    >
-                      <AiOutlineMail />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/muhammad-aqib-ali453"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="contact-link"
-                      aria-label="LinkedIn"
-                      title="LinkedIn"
-                    >
-                      <AiOutlineLinkedin />
-                    </a>
-                    <a
-                      href="https://github.com/MuhammadAqibAli53"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="contact-link"
-                      aria-label="GitHub"
-                      title="GitHub"
-                    >
-                      <AiOutlineGithub />
-                    </a>
-                  </div>
-                </div>
-              </div>
               <img
                 src={laptopImg}
                 alt="Software engineering workspace"
@@ -213,7 +162,13 @@ function About() {
             </div>
             <Row className="competencies-grid">
               {coreCompetencies.map((category, idx) => (
-                <Col md={6} sm={12} xs={12} key={category.title} className="mb-4">
+                <Col
+                  md={6}
+                  sm={12}
+                  xs={12}
+                  key={category.title}
+                  className="mb-4"
+                >
                   <div
                     className="competency-card"
                     style={{ animationDelay: `${idx * 0.1}s` }}

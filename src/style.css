@@ -2142,13 +2142,19 @@ button:focus {
   width: 100%;
   padding: 0.85rem 1rem;
   border-radius: 14px;
-  background: rgba(2, 6, 23, 0.55);
+  background: rgba(2, 6, 23, 0.55) !important;
   color: var(--text-primary) !important;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
   font-size: 0.95rem;
   line-height: 1.5;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   appearance: none;
+}
+
+.contact-input.form-control {
+  background: rgba(2, 6, 23, 0.55) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
 }
 
 .contact-input::placeholder {
@@ -2177,6 +2183,8 @@ button:focus {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 12px 8px;
+  background-color: rgba(2, 6, 23, 0.55) !important;
+  color: var(--text-primary) !important;
 }
 
 .contact-select option {
@@ -2462,4 +2470,466 @@ button:focus {
     bottom: 40px;
     left: 4px;
   }
+}
+
+/* Tertiary action button */
+.tertiary-action {
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px dashed rgba(34, 211, 238, 0.25);
+  min-width: 160px;
+}
+
+.tertiary-action:hover {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: rgba(34, 211, 238, 0.45);
+  color: var(--imp-text-color);
+}
+
+/* Navbar polish */
+.fork-btn-cv {
+  margin-right: 0.5rem !important;
+}
+
+.fork-btn-cv-inner {
+  background-color: rgba(34, 211, 238, 0.18) !important;
+  border: 1px solid rgba(34, 211, 238, 0.35) !important;
+  color: var(--text-primary) !important;
+}
+
+.fork-btn-cv-inner:hover {
+  background-color: rgba(34, 211, 238, 0.28) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2) !important;
+  border-color: var(--imp-text-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* --------- */
+/* Horizontal Project Cards */
+/* --------- */
+.project-home-section {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-image: var(--section-background-color) !important;
+}
+
+.project-home-inner,
+.project-page-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.project-section-header {
+  margin-bottom: 2.75rem !important;
+}
+
+.horizontal-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.h-project-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 11fr) minmax(0, 13fr);
+  gap: 0;
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.28);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  animation: fadeInUp 0.65s ease both;
+  isolation: isolate;
+}
+
+.h-project-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.35), rgba(139, 92, 246, 0.0));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.h-project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 60px rgba(34, 211, 238, 0.12), 0 20px 50px rgba(2, 6, 23, 0.35);
+}
+
+.h-project-card:hover::before {
+  opacity: 1;
+}
+
+.h-project-card:hover .h-card-image {
+  transform: scale(1.06);
+}
+
+.h-project-card.h-card-reversed {
+  grid-template-columns: minmax(0, 13fr) minmax(0, 11fr);
+}
+
+.h-project-card.h-card-reversed .h-card-image-col {
+  order: 2;
+}
+
+.h-project-card.h-card-reversed .h-card-content-col {
+  order: 1;
+}
+
+.h-card-glow {
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(34, 211, 238, 0.12), transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.h-card-image-col {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.h-project-card.h-card-reversed .h-card-image-col {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.h-card-image-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.35);
+}
+
+.h-card-image-shell img {
+  object-fit: cover;
+}
+
+.h-card-image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.h-card-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.9rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.h-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: var(--imp-text-color);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(10px);
+}
+
+.h-card-featured {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(139, 92, 246, 0.25));
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  color: #fde68a;
+  font-weight: 700;
+  font-size: 0.78rem;
+  backdrop-filter: blur(10px);
+}
+
+.h-card-image-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.h-card-content-col {
+  position: relative;
+  z-index: 1;
+  padding: 2.25rem 2.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.h-card-topmeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.1rem;
+}
+
+.h-card-alignicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  color: var(--imp-text-color);
+  font-size: 1rem;
+}
+
+.h-card-type,
+.h-card-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.h-card-category {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(34, 211, 238, 0.18));
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: var(--imp-text-color);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.h-card-title {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.h-card-description {
+  color: var(--text-muted);
+  line-height: 1.85;
+  font-size: 0.97rem;
+  margin: 0.1rem 0 0.35rem;
+  text-align: left;
+}
+
+.h-card-stack {
+  margin-top: 0.25rem;
+}
+
+.h-card-stack-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.55rem;
+}
+
+.h-card-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.h-card-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.h-card-tech:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.h-card-tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.h-card-tech-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.h-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.1rem;
+}
+
+.h-card-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.h-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.35rem;
+}
+
+.h-card-btn {
+  min-width: auto;
+  padding: 0.78rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.h-card-cta {
+  min-width: 140px;
+}
+
+.h-card-live {
+  min-width: 140px;
+  gap: 0.45rem;
+}
+
+.h-card-arrow {
+  transition: transform 0.25s ease;
+  font-size: 1em;
+}
+
+.h-card-live:hover .h-card-arrow {
+  transform: translateX(4px);
+}
+
+/* Horizontal project cards responsive */
+@media (max-width: 991px) {
+  .h-project-card,
+  .h-project-card.h-card-reversed {
+    grid-template-columns: 1fr;
+  }
+
+  .h-project-card.h-card-reversed .h-card-image-col,
+  .h-project-card.h-card-reversed .h-card-content-col {
+    order: initial;
+  }
+
+  .h-card-image-col {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .h-project-card.h-card-reversed .h-card-image-col {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  .h-card-image-shell {
+    min-height: 260px;
+  }
+
+  .h-card-image {
+    min-height: 260px;
+  }
+
+  .h-card-content-col {
+    padding: 1.5rem 1.4rem 1.75rem;
+  }
+
+  .horizontal-projects-list {
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .h-card-image-shell {
+    min-height: 220px;
+  }
+  .h-card-image {
+    min-height: 220px;
+  }
+
+  .h-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .h-card-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .horizontal-projects-list {
+    gap: 1.5rem;
+  }
+}
+
+/* Single page alignment fixes */
+#home,
+#services,
+#about-anchor,
+#projects,
+#contact {
+  scroll-margin-top: 90px;
 }

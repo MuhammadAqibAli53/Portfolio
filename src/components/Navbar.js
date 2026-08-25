@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
@@ -12,13 +12,26 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
   AiOutlineMail,
+  AiOutlineDownload,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import cvPdf from "../Assets/cv_aqib.pdf";
+
+
+const scrollToId = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    const yOffset = -90;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
 
 function NavBar() {
+  const location = useLocation();
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     function scrollHandler() {
@@ -26,11 +39,15 @@ function NavBar() {
     }
 
     window.addEventListener("scroll", scrollHandler);
-
-    return () => {
-      window.removeEventListener("scroll", scrollHandler);
-    };
+    return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
+
+  const buildHandler = (anchorId) => (e) => {
+    updateExpanded(false);
+    if (!isHome) return; // default Link will navigate "/" first
+    e.preventDefault();
+    scrollToId(anchorId);
+  };
 
   return (
     <Navbar
@@ -40,7 +57,12 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex brand-mark">
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          onClick={() => updateExpanded(false)}
+          className="d-flex brand-mark"
+        >
           MA.
         </Navbar.Brand>
         <Navbar.Toggle
@@ -56,7 +78,11 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={buildHandler("home")}
+              >
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
@@ -64,8 +90,8 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
+                to="/#about-anchor"
+                onClick={buildHandler("about-anchor")}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> About
               </Nav.Link>
@@ -74,13 +100,22 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
+                to="/#projects"
+                onClick={buildHandler("projects")}
               >
                 <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
+                  style={{ marginBottom: "2px" }} />{" "}
                 Projects
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/#contact"
+                onClick={buildHandler("contact")}
+              >
+                <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact
               </Nav.Link>
             </Nav.Item>
 
@@ -96,29 +131,34 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                as={Link}
-                to="/contact"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineMail style={{ marginBottom: "2px" }} /> Contact
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
                 href=""
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => updateExpanded(false)}
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Blogs
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
+            <Nav.Item className="fork-btn fork-btn-cv">
+              <Button
+                href={cvPdf}
+                target="_blank"
+                rel="noreferrer"
+                className="fork-btn-inner fork-btn-cv-inner"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineDownload style={{ fontSize: "1.1em" }} />
+                &nbsp;CV
+              </Button>
+            </Nav.Item>
+
+            <Nav.Item className="fork-btn fork-btn-star">
               <Button
                 href="https://github.com/MuhammadAqibAli53/Portfolio"
                 target="_blank"
                 className="fork-btn-inner"
+                onClick={() => updateExpanded(false)}
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
                 <AiFillStar style={{ fontSize: "1.1em" }} />

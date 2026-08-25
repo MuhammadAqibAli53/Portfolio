@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
 import {
   AiOutlineMail,
@@ -13,11 +14,12 @@ import {
   AiOutlineUser,
   AiOutlineMessage,
   AiOutlineCheckCircle,
+  AiOutlineExclamationCircle,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
-const CONTACT_EMAIL = "muhammadaqibali453@gmail.com";
-const CONTACT_PHONE = "+92 300 1234567";
+const CONTACT_EMAIL = "m.aqibali2005@gmail.com";
+const CONTACT_PHONE = "+92 321 9052144";
 const CONTACT_LOCATION = "Gujranwala, Pakistan";
 
 const contactInfo = [
@@ -26,7 +28,7 @@ const contactInfo = [
     title: "Email",
     value: CONTACT_EMAIL,
     href: `mailto:${CONTACT_EMAIL}`,
-    sub: "I typically respond within 24 hours",
+    sub: "I typically respond within 1 hour",
     accent: "#22d3ee",
   },
   {
@@ -63,93 +65,90 @@ const inquiryTypes = [
   "Other",
 ];
 
+const INITIAL_STATE = {
+  name: "",
+  email: "",
+  subject: "",
+  inquiryType: "Freelance Project",
+  message: "",
+};
+
 function Contact({ standalone = true }) {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    inquiryType: "Freelance Project",
-    message: "",
-  });
+  const [formState, setFormState] = useState(INITIAL_STATE);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  const validateField = (name, value, currentErrors) => {
-    const newErrors = { ...currentErrors };
-    switch (name) {
-      case "name":
-        if (!value.trim()) newErrors.name = "Please enter your name";
-        else if (value.trim().length < 2) newErrors.name = "Name is too short";
-        else delete newErrors.name;
-        break;
-      case "email":
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!value.trim()) newErrors.email = "Please enter your email";
-        else if (!emailRegex.test(value))
-          newErrors.email = "Please enter a valid email address";
-        else delete newErrors.email;
-        break;
-      case "subject":
-        if (!value.trim()) newErrors.subject = "Please enter a subject";
-        else if (value.trim().length < 3) newErrors.subject = "Subject is too short";
-        else delete newErrors.subject;
-        break;
-      case "message":
-        if (!value.trim()) newErrors.message = "Please write your message";
-        else if (value.trim().length < 10)
-          newErrors.message = "Message should be at least 10 characters";
-        else delete newErrors.message;
-        break;
-      default:
-        break;
+  const validate = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formState.name.trim()) {
+      newErrors.name = "Please enter your name";
+    } else if (formState.name.trim().length < 2) {
+      newErrors.name = "Name is too short";
     }
-    return newErrors;
+
+    if (!formState.email.trim()) {
+      newErrors.email = "Please enter your email";
+    } else if (!emailRegex.test(formState.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formState.subject.trim()) {
+      newErrors.subject = "Please enter a subject";
+    } else if (formState.subject.trim().length < 3) {
+      newErrors.subject = "Subject is too short";
+    }
+
+    if (!formState.message.trim()) {
+      newErrors.message = "Please write your message";
+    } else if (formState.message.trim().length < 10) {
+      newErrors.message = "Message should be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
-    const newErrors = validateField(name, value, errors);
-    setErrors(newErrors);
-    if (submitStatus) setSubmitStatus(null);
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let validationErrors = {};
-    Object.keys(formState).forEach((key) => {
-      validationErrors = validateField(key, formState[key], validationErrors);
-    });
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
+    if (!validate()) return;
 
     setSubmitting(true);
     setSubmitStatus(null);
 
-    const subjectEncoded = encodeURIComponent(
-      `[Portfolio] ${formState.inquiryType} — ${formState.subject} (${formState.name})`
-    );
-    const bodyEncoded = encodeURIComponent(
-      `Hello Muhammad Aqib Ali,\n\nYou have received a new inquiry from your portfolio website:\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n👤 Name: ${formState.name}\n📧 Email: ${formState.email}\n🏷️ Inquiry Type: ${formState.inquiryType}\n📌 Subject: ${formState.subject}\n\n💬 Message:\n${formState.message}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSent from your portfolio contact form.`
-    );
+    const templateParams = {
+      from_name: formState.name,
+      reply_to: formState.email,
+      inquiry_type: formState.inquiryType,
+      subject: formState.subject,
+      message: formState.message,
+    };
 
-    setTimeout(() => {
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subjectEncoded}&body=${bodyEncoded}`;
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        templateParams,
+        "YOUR_PUBLIC_KEY"
+      );
+
       setSubmitStatus("success");
+      setFormState(INITIAL_STATE);
+    } catch (err) {
+      setSubmitStatus("error");
+    } finally {
       setSubmitting(false);
-      setFormState({
-        name: "",
-        email: "",
-        subject: "",
-        inquiryType: "Freelance Project",
-        message: "",
-      });
-    }, 700);
+    }
   };
 
   const formClasses = standalone ? "contact-page-form" : "contact-home-form";
@@ -161,29 +160,25 @@ function Contact({ standalone = true }) {
       {standalone && <Particle />}
       <Container fluid className={sectionClass} id="contact">
         <Container className={standalone ? "pt-2" : ""}>
-          {standalone && (
+          {standalone ? (
             <div className="about-hero contact-hero">
               <span className="section-chip">Get in Touch</span>
               <h1 className="about-hero-title">
-                Let&apos;s build something{" "}
-                <span className="purple">exceptional together.</span>
+                Let&apos;s build something <span className="purple">exceptional together.</span>
               </h1>
               <p className="about-hero-subtitle">
                 Have a project in mind, a role to discuss, or just want to say hi?
-                I&apos;d love to hear from you. Fill out the form below and I&apos;ll
-                get back to you as soon as possible.
+                Fill out the form below and I&apos;ll get back to you as soon as possible.
               </p>
             </div>
-          )}
-
-          {!standalone && (
+          ) : (
             <div className="section-header contact-header">
               <span className="section-chip">Contact Me</span>
               <h2 className="section-title">
                 Ready to start a <span className="purple">project?</span>
               </h2>
               <p className="section-subtitle">
-                Drop a message below — your email client will send it directly to my inbox.
+                Drop a message below and I will get back to you shortly.
               </p>
             </div>
           )}
@@ -247,7 +242,7 @@ function Contact({ standalone = true }) {
                         <FaLinkedinIn />
                       </a>
                       <a
-                        href="https://twitter.com/"
+                        href="https://x.com/ranaaqib06"
                         target="_blank"
                         rel="noreferrer"
                         className="contact-social-icon"
@@ -262,175 +257,141 @@ function Contact({ standalone = true }) {
               </Col>
 
               <Col lg={7} md={7} className="contact-form-col">
-                <form
-                  className={`contact-form-shell ${formClasses}`}
-                  onSubmit={handleSubmit}
-                  noValidate
-                >
+                <div className={`contact-form-shell ${formClasses}`}>
                   <h3 className="contact-form-title">Send me a message</h3>
                   <p className="contact-form-subtitle">
                     I review every message personally. Expect a reply within 24 hours.
                   </p>
 
-                  <Row className="form-row">
-                    <Col md={6} sm={12} className="form-col">
-                      <div className="form-group">
-                        <label htmlFor="name" className="form-label">
-                          <AiOutlineUser className="form-label-icon" /> Your Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          className={`form-control contact-input ${
-                            errors.name ? "input-error" : ""
-                          }`}
-                          placeholder="John Doe"
-                          value={formState.name}
-                          onChange={handleChange}
-                          autoComplete="name"
-                        />
-                        {errors.name && (
-                          <span className="form-error">{errors.name}</span>
-                        )}
-                      </div>
-                    </Col>
-                    <Col md={6} sm={12} className="form-col">
-                      <div className="form-group">
-                        <label htmlFor="email" className="form-label">
-                          <AiOutlineMail className="form-label-icon" /> Your Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          className={`form-control contact-input ${
-                            errors.email ? "input-error" : ""
-                          }`}
-                          placeholder="you@example.com"
-                          value={formState.email}
-                          onChange={handleChange}
-                          autoComplete="email"
-                        />
-                        {errors.email && (
-                          <span className="form-error">{errors.email}</span>
-                        )}
-                      </div>
-                    </Col>
-                  </Row>
+                  <form onSubmit={handleSubmit} noValidate>
+                    <Row className="form-row">
+                      <Col md={6} sm={12} className="form-col">
+                        <div className="form-group">
+                          <label htmlFor="name" className="form-label">
+                            <AiOutlineUser className="form-label-icon" /> Your Name
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            className={`form-control contact-input ${errors.name ? "input-error" : ""}`}
+                            placeholder="John Doe"
+                            value={formState.name}
+                            onChange={handleChange}
+                            autoComplete="name"
+                          />
+                          {errors.name && <span className="form-error">{errors.name}</span>}
+                        </div>
+                      </Col>
+                      <Col md={6} sm={12} className="form-col">
+                        <div className="form-group">
+                          <label htmlFor="email" className="form-label">
+                            <AiOutlineMail className="form-label-icon" /> Your Email
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            className={`form-control contact-input ${errors.email ? "input-error" : ""}`}
+                            placeholder="you@example.com"
+                            value={formState.email}
+                            onChange={handleChange}
+                            autoComplete="email"
+                          />
+                          {errors.email && <span className="form-error">{errors.email}</span>}
+                        </div>
+                      </Col>
+                    </Row>
 
-                  <Row className="form-row">
-                    <Col md={6} sm={12} className="form-col">
-                      <div className="form-group">
-                        <label htmlFor="inquiryType" className="form-label">
-                          Inquiry Type
-                        </label>
-                        <select
-                          id="inquiryType"
-                          name="inquiryType"
-                          className="form-control contact-input contact-select"
-                          value={formState.inquiryType}
-                          onChange={handleChange}
-                        >
-                          {inquiryTypes.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </Col>
-                    <Col md={6} sm={12} className="form-col">
-                      <div className="form-group">
-                        <label htmlFor="subject" className="form-label">
-                          <AiOutlineMessage className="form-label-icon" /> Subject
-                        </label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          className={`form-control contact-input ${
-                            errors.subject ? "input-error" : ""
-                          }`}
-                          placeholder="How can I help you?"
-                          value={formState.subject}
-                          onChange={handleChange}
-                        />
-                        {errors.subject && (
-                          <span className="form-error">{errors.subject}</span>
-                        )}
-                      </div>
-                    </Col>
-                  </Row>
+                    <Row className="form-row">
+                      <Col md={6} sm={12} className="form-col">
+                        <div className="form-group">
+                          <label htmlFor="inquiryType" className="form-label">
+                            Inquiry Type
+                          </label>
+                          <select
+                            id="inquiryType"
+                            name="inquiryType"
+                            className="form-control contact-input contact-select"
+                            value={formState.inquiryType}
+                            onChange={handleChange}
+                          >
+                            {inquiryTypes.map((type) => (
+                              <option key={type} value={type}>
+                                {type}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </Col>
+                      <Col md={6} sm={12} className="form-col">
+                        <div className="form-group">
+                          <label htmlFor="subject" className="form-label">
+                            <AiOutlineMessage className="form-label-icon" /> Subject
+                          </label>
+                          <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            className={`form-control contact-input ${errors.subject ? "input-error" : ""}`}
+                            placeholder="How can I help you?"
+                            value={formState.subject}
+                            onChange={handleChange}
+                          />
+                          {errors.subject && <span className="form-error">{errors.subject}</span>}
+                        </div>
+                      </Col>
+                    </Row>
 
-                  <div className="form-group">
-                    <label htmlFor="message" className="form-label">
-                      <AiOutlineMessage className="form-label-icon" /> Your Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={6}
-                      className={`form-control contact-input contact-textarea ${
-                        errors.message ? "input-error" : ""
-                      }`}
-                      placeholder="Tell me about your project, timeline, budget, or anything else I should know..."
-                      value={formState.message}
-                      onChange={handleChange}
-                    />
-                    {errors.message && (
-                      <span className="form-error">{errors.message}</span>
-                    )}
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="hero-action primary-action contact-submit-btn"
-                    disabled={submitting}
-                  >
-                    {submitting ? (
-                      <>
-                        <span className="btn-spinner"></span>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <AiOutlineSend className="hero-action-icon" /> Send Message
-                      </>
-                    )}
-                  </button>
-
-                  {submitStatus === "success" && (
-                    <div className="form-status form-status-success">
-                      <AiOutlineCheckCircle className="form-status-icon" />
-                      <div>
-                        <strong>Message ready to send!</strong>
-                        <span>
-                          Your email client should now be open. Please review the
-                          message and hit <em>Send</em> to deliver it directly to my
-                          inbox.
-                        </span>
-                      </div>
+                    <div className="form-group">
+                      <label htmlFor="message" className="form-label">
+                        <AiOutlineMessage className="form-label-icon" /> Your Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={6}
+                        className={`form-control contact-input contact-textarea ${errors.message ? "input-error" : ""}`}
+                        placeholder="Tell me about your project, timeline, budget..."
+                        value={formState.message}
+                        onChange={handleChange}
+                      />
+                      {errors.message && <span className="form-error">{errors.message}</span>}
                     </div>
-                  )}
 
-                  {submitStatus === "error" && (
-                    <div className="form-status form-status-error">
-                      <div>
-                        <strong>Something went wrong.</strong>
-                        <span>
-                          Please email me directly at{" "}
-                          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-                        </span>
+                    <button
+                      type="submit"
+                      className="hero-action primary-action contact-submit-btn"
+                      disabled={submitting}
+                    >
+                      <AiOutlineSend className="hero-action-icon" />
+                      {submitting ? "Sending..." : "Send Message"}
+                    </button>
+
+                    {submitStatus === "success" && (
+                      <div className="form-status form-status-success">
+                        <AiOutlineCheckCircle className="form-status-icon" />
+                        <div>
+                          <strong>Message sent successfully!</strong>
+                          <span>Thanks for reaching out. I'll get back to you shortly.</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  <p className="form-footnote">
-                    <AiOutlineMail /> Your details stay private. The form opens your
-                    email client — nothing is stored on any server.
-                  </p>
-                </form>
+                    {submitStatus === "error" && (
+                      <div className="form-status form-status-error">
+                        <AiOutlineExclamationCircle className="form-status-icon" />
+                        <div>
+                          <strong>Something went wrong.</strong>
+                          <span>
+                            Please email me directly at{" "}
+                            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </form>
+                </div>
               </Col>
             </Row>
           </div>

@@ -33,7 +33,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="https://twitter.com/"
+                href="https://x.com/ranaaqib06"
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -43,7 +43,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="www.linkedin.com/in/muhammad-aqib-ali453"
+                href="https://www.linkedin.com/in/muhammad-aqib-ali453?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -53,7 +53,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="https://www.instagram.com/rana_aqib06"
+                href="https://www.instagram.com/rana_aqib06?igsi=aDhwaWsxZ3p0MTcz"
                 style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
