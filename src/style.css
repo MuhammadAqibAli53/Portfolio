@@ -2340,6 +2340,24 @@ button:focus {
   .contact-submit-btn {
     width: 100%;
   }
+
+  .contact-grid-row {
+    flex-direction: column;
+  }
+
+  .contact-info-col,
+  .contact-form-col {
+    width: 100%;
+  }
+
+  .contact-info-item {
+    padding: 1rem;
+  }
+
+  .contact-social-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
 
 /* Responsive tweaks */
@@ -2374,6 +2392,50 @@ button:focus {
     bottom: 50px;
     left: 10px;
   }
+
+  .strength-grid {
+    flex-direction: column;
+  }
+
+  .strength-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.75rem !important;
+  }
+
+  .heading-name {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-summary {
+    font-size: 0.95rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+
+  .about-hero-title {
+    font-size: 1.5rem !important;
+  }
+
+  .contact-info-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-info-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2392,10 +2454,13 @@ button:focus {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
   .hero-action {
     width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
   }
 
   .hero-image-shell {
@@ -2405,6 +2470,15 @@ button:focus {
 
   .hero-image {
     max-height: 280px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-stat-card {
+    padding: 1rem;
   }
 
   .home-about-social,
@@ -2439,6 +2513,7 @@ button:focus {
 
   .about-hero-title {
     text-align: left;
+    font-size: 1.75rem;
   }
 
   .section-header {
@@ -2469,6 +2544,23 @@ button:focus {
   .tech-badge-3 {
     bottom: 40px;
     left: 4px;
+  }
+
+  .services-grid {
+    flex-direction: column;
+  }
+
+  .service-card {
+    margin-bottom: 1rem;
+  }
+
+  .social-strip {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-about-social {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -2932,4 +3024,43 @@ button:focus {
 #projects,
 #contact {
   scroll-margin-top: 90px;
+}
+
+/* Large desktop screens */
+@media (min-width: 1400px) {
+  .home-content {
+    max-width: 1400px;
+  }
+
+  .hero-row {
+    min-height: 85vh;
+  }
+
+  .heading {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-grid-row {
+    gap: 3rem;
+  }
+}
+
+/* Medium laptop screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .hero-image-shell {
+    min-height: 450px;
+  }
+
+  .contact-info-col,
+  .contact-form-col {
+    padding: 0 1rem;
+  }
 }
