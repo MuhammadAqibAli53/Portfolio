@@ -61,7 +61,7 @@ function Home2() {
           <Col lg={7} md={8} className="home-about-description">
             <span className="section-chip">About Me</span>
             <h1 className="home-about-title">
-              Engineer. Builder.{" "}
+              Expert Builder.{" "}
               <span className="purple">Problem Solver.</span>
             </h1>
 
@@ -69,7 +69,7 @@ function Home2() {
               I&apos;m a Software Engineer from Gujranwala, Pakistan, with a
               passion for building digital products that blend clean design
               with robust engineering. Over the past 3+ years, I&apos;ve
-              delivered end-to-end solutions — from elegant customer-facing
+              delivered end-to-end solutions from elegant customer-facing
               interfaces to mission-critical backend systems and intelligent
               AI-powered features.
             </p>
@@ -78,7 +78,7 @@ function Home2() {
               My technical toolkit spans{" "}
               <span className="purple">
                 React.js, Next.js, Node.js, Laravel PHP, TypeScript, Python,
-                and C++
+                C++ , C# and Desktop apps
               </span>{" "}
               — allowing me to move fluidly between frontend UX, backend
               architecture, database design, and machine learning pipelines.
@@ -99,16 +99,7 @@ function Home2() {
               </div>
             </div>
 
-            <Row className="mini-achievements-row">
-              {achievements.map((item) => (
-                <Col md={4} sm={4} xs={12} key={item.label} className="mb-3">
-                  <div className="mini-achievement">
-                    <span className="mini-achievement-value">{item.value}</span>
-                    <span className="mini-achievement-label">{item.label}</span>
-                  </div>
-                </Col>
-              ))}
-            </Row>
+           
 
             <Row className="strength-grid">
               {strengths.map((item) => (

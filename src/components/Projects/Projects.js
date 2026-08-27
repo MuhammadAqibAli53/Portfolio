@@ -91,7 +91,7 @@ function Projects({ standalone = true }) {
     </>
   ) : (
     <>
-      Selected{" "}
+     
       <strong className="purple">
         Projects &amp; Works
       </strong>
@@ -100,7 +100,7 @@ function Projects({ standalone = true }) {
 
   const sectionSubtitle = standalone
     ? "Production-grade full-stack architectures, AI/ML models, and algorithmic trading systems I have designed, built and shipped."
-    : "A curated selection of the full-stack platforms, AI models, and automation systems I have engineered end-to-end.";
+    : "Full-stack platforms, AI models, and automation systems I have engineered end-to-end.";
 
   return (
     <Container
