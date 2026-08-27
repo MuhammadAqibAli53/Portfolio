@@ -8,7 +8,7 @@ function Type() {
         strings: [
           "Full-Stack Developer",
           "AI & Machine Learning Engineer",
-          "Deep learning Model traning",
+          "Deep Learning Model Training",
           "React.js & Laravel Specialist",
           "MERN Stack Architect",
           "Systems & Automation Engineer",

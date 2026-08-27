@@ -103,7 +103,9 @@ function Home() {
 
               <p className="hero-summary">
                 Software Engineer specializing in full-stack web development and
-                AI-powered solutions.Laravel backends and
+                AI-powered solutions. I transform complex business challenges
+                into elegant, scalable applications — from pixel-perfect React
+                interfaces to robust Node.js &amp; Laravel backends and
                 intelligent machine learning systems.
               </p>
 

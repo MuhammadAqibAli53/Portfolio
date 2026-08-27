@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
 import {
   AiOutlineMail,
@@ -8,13 +7,11 @@ import {
   AiOutlineEnvironment,
   AiOutlineClockCircle,
   AiFillGithub,
-  AiOutlineLinkedin,
   AiOutlineTwitter,
   AiOutlineSend,
   AiOutlineUser,
   AiOutlineMessage,
   AiOutlineCheckCircle,
-  AiOutlineExclamationCircle,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -75,80 +72,26 @@ const INITIAL_STATE = {
 
 function Contact({ standalone = true }) {
   const [formState, setFormState] = useState(INITIAL_STATE);
-  const [errors, setErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const validate = () => {
-    const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!formState.name.trim()) {
-      newErrors.name = "Please enter your name";
-    } else if (formState.name.trim().length < 2) {
-      newErrors.name = "Name is too short";
-    }
-
-    if (!formState.email.trim()) {
-      newErrors.email = "Please enter your email";
-    } else if (!emailRegex.test(formState.email)) {
-      newErrors.email = "Please enter a valid email address";
-    }
-
-    if (!formState.subject.trim()) {
-      newErrors.subject = "Please enter a subject";
-    } else if (formState.subject.trim().length < 3) {
-      newErrors.subject = "Subject is too short";
-    }
-
-    if (!formState.message.trim()) {
-      newErrors.message = "Please write your message";
-    } else if (formState.message.trim().length < 10) {
-      newErrors.message = "Message should be at least 10 characters";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    
+    const subject = `[Portfolio] ${formState.inquiryType} — ${formState.subject}`;
+    const body = `Name: ${formState.name}
+Email: ${formState.email}
+Inquiry Type: ${formState.inquiryType}
+Subject: ${formState.subject}
 
-    setSubmitting(true);
-    setSubmitStatus(null);
-
-    const templateParams = {
-      from_name: formState.name,
-      reply_to: formState.email,
-      inquiry_type: formState.inquiryType,
-      subject: formState.subject,
-      message: formState.message,
-    };
-
-    try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        templateParams,
-        "YOUR_PUBLIC_KEY"
-      );
-
-      setSubmitStatus("success");
-      setFormState(INITIAL_STATE);
-    } catch (err) {
-      setSubmitStatus("error");
-    } finally {
-      setSubmitting(false);
-    }
+Message:
+${formState.message}`;
+    
+    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   };
 
   const formClasses = standalone ? "contact-page-form" : "contact-home-form";
@@ -232,7 +175,7 @@ function Contact({ standalone = true }) {
                         <AiFillGithub />
                       </a>
                       <a
-                        href="https://www.linkedin.com/in/muhammad-aqib-ali453"
+                        href="https://www.linkedin.com/in/muhammad-aqib-ali453?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                         target="_blank"
                         rel="noreferrer"
                         className="contact-social-icon"
@@ -263,7 +206,7 @@ function Contact({ standalone = true }) {
                     I review every message personally. Expect a reply within 24 hours.
                   </p>
 
-                  <form onSubmit={handleSubmit} noValidate>
+                  <form onSubmit={handleSubmit} className="contact-form-content">
                     <Row className="form-row">
                       <Col md={6} sm={12} className="form-col">
                         <div className="form-group">
@@ -274,13 +217,13 @@ function Contact({ standalone = true }) {
                             type="text"
                             id="name"
                             name="name"
-                            className={`form-control contact-input ${errors.name ? "input-error" : ""}`}
+                            className="form-control contact-input"
                             placeholder="John Doe"
                             value={formState.name}
                             onChange={handleChange}
                             autoComplete="name"
+                            required
                           />
-                          {errors.name && <span className="form-error">{errors.name}</span>}
                         </div>
                       </Col>
                       <Col md={6} sm={12} className="form-col">
@@ -292,13 +235,13 @@ function Contact({ standalone = true }) {
                             type="email"
                             id="email"
                             name="email"
-                            className={`form-control contact-input ${errors.email ? "input-error" : ""}`}
+                            className="form-control contact-input"
                             placeholder="you@example.com"
                             value={formState.email}
                             onChange={handleChange}
                             autoComplete="email"
+                            required
                           />
-                          {errors.email && <span className="form-error">{errors.email}</span>}
                         </div>
                       </Col>
                     </Row>
@@ -333,12 +276,12 @@ function Contact({ standalone = true }) {
                             type="text"
                             id="subject"
                             name="subject"
-                            className={`form-control contact-input ${errors.subject ? "input-error" : ""}`}
+                            className="form-control contact-input"
                             placeholder="How can I help you?"
                             value={formState.subject}
                             onChange={handleChange}
+                            required
                           />
-                          {errors.subject && <span className="form-error">{errors.subject}</span>}
                         </div>
                       </Col>
                     </Row>
@@ -351,45 +294,20 @@ function Contact({ standalone = true }) {
                         id="message"
                         name="message"
                         rows={6}
-                        className={`form-control contact-input contact-textarea ${errors.message ? "input-error" : ""}`}
+                        className="form-control contact-input contact-textarea"
                         placeholder="Tell me about your project, timeline, budget..."
                         value={formState.message}
                         onChange={handleChange}
+                        required
                       />
-                      {errors.message && <span className="form-error">{errors.message}</span>}
                     </div>
 
                     <button
                       type="submit"
                       className="hero-action primary-action contact-submit-btn"
-                      disabled={submitting}
                     >
-                      <AiOutlineSend className="hero-action-icon" />
-                      {submitting ? "Sending..." : "Send Message"}
+                      <AiOutlineSend className="hero-action-icon" /> Send Message
                     </button>
-
-                    {submitStatus === "success" && (
-                      <div className="form-status form-status-success">
-                        <AiOutlineCheckCircle className="form-status-icon" />
-                        <div>
-                          <strong>Message sent successfully!</strong>
-                          <span>Thanks for reaching out. I'll get back to you shortly.</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {submitStatus === "error" && (
-                      <div className="form-status form-status-error">
-                        <AiOutlineExclamationCircle className="form-status-icon" />
-                        <div>
-                          <strong>Something went wrong.</strong>
-                          <span>
-                            Please email me directly at{" "}
-                            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
-                          </span>
-                        </div>
-                      </div>
-                    )}
                   </form>
                 </div>
               </Col>

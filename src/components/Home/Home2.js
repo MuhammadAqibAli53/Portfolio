@@ -99,8 +99,6 @@ function Home2() {
               </div>
             </div>
 
-           
-
             <Row className="strength-grid">
               {strengths.map((item) => (
                 <Col md={4} sm={6} xs={12} key={item.title} className="mb-3">
