@@ -5,10 +5,12 @@ import Particle from "../Particle";
 
 import leaf from "../../Assets/Projects/leaf.png";
 import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/Projects/chatify.png";
 import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
+import parkinsons_disease_ai from "../../Assets/Projects/Gemini_Generated_Image_m3ax8tm3ax8tm3ax.jpg";
+import metatrader from "../../Assets/Projects/meta.png";
+
 
 const PROJECTS = [
   {
@@ -23,29 +25,38 @@ const PROJECTS = [
     demoLink: "https://your-demo.com",
     highlight: true,
   },
+   {
+  imgPath: parkinsons_disease_ai,
+  isBlog: false,
+  title: "Parkinson's Disease Classification from MRI",
+  description: "Conducted an end-to-end comparative study of eleven classification models—spanning classical machine learning, deep learning, and transformer-based architectures—to distinguish Parkinson's Disease patients from healthy controls. Built a robust preprocessing pipeline to unify 3,630 raw structural MRI and DaTscan images. Utilized SHAP and LIME to provide explainability for the textural features and spatial regions driving individual predictions.",
+  tags: ["Machine Learning", "Deep Learning", "Transformers", "Medical Imaging"],
+  stack: ["Python", "Keras", "XGBoost", "Hugging Face"],
+  ghLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
+  demoLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
+},
   {
     imgPath: leaf,
     isBlog: false,
-    title: "Deep Learning Image Classification Pipeline",
+    title: "Deep Learning Potato disease Classification using leafs",
     description:
-      "Architected and trained an end-to-end multi-class image classifier using PyTorch, TensorFlow, and OpenCV. Optimized inference latency and implemented secure software design principles to protect model endpoints against malformed inputs.",
+      "Architected and trained an end-to-end multi-class potato disease classifier using PyTorch, TensorFlow, and OpenCV. Optimized inference latency and implemented secure software design principles to protect model endpoints against malformed inputs.",
     tags: ["AI/ML", "Computer Vision", "Deep Learning"],
     stack: ["Python", "PyTorch", "TensorFlow"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
+    ghLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
+    demoLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
     highlight: true,
   },
   {
-    imgPath: editor,
-    isBlog: false,
-    title: "MT4/MT5 Algorithmic Trading Bot & Replicator",
-    description:
-      "Developed custom automated trading bots, indicators, and Expert Advisors (EAs) for MetaTrader 4 and 5 using MQL4/MQL5 and Python. Engineered low-latency master-to-slave trade replication logic across restricted broker environments.",
-    tags: ["FinTech", "Algo Trading", "Automation"],
-    stack: ["Python", "MQL5"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
-  },
+  imgPath: metatrader,
+  isBlog: false,
+  title: "MT4 & MT5 Algorithmic Trading Expert Advisors",
+  description: "Developed and optimized automated trading bots (Expert Advisors) and custom indicators for both MetaTrader 4 and MetaTrader 5 platforms. Engineered robust risk management features, dynamic position sizing, and algorithmic order execution pipelines based on strict technical criteria. Conducted extensive strategy backtesting and structural bug fixing for legacy MQL4/MQL5 scripts to ensure high-frequency trading stability and capital preservation.",
+  tags: ["Algorithmic Trading", "MetaTrader", "Expert Advisors", "Quantitative Finance"],
+  stack: ["MQL4", "MQL5", "C++", "Financial APIs"],
+  ghLink: "https://github.com/muhammadaqibali/metatrader-expert-advisors",
+  demoLink: "https://github.com/muhammadaqibali/metatrader-expert-advisors",
+},
   {
     imgPath: bitsOfCode,
     isBlog: false,
@@ -79,6 +90,7 @@ const PROJECTS = [
     ghLink: "https://github.com",
     demoLink: "https://your-demo.com",
   },
+ 
 ];
 
 function Projects({ standalone = true }) {
