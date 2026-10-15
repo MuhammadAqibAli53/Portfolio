@@ -6,9 +6,10 @@ import Particle from "../Particle";
 
 
 
-const PROJECTS = [
+export const PROJECTS = [
   {
     title: "Student RAG System",
+    slug: "student-rag-system",
     imgPath: "/project-covers/student-rag-system.webp",
     description: "A document-grounded question-answering prototype with PDF/TXT extraction, overlapping text chunks, MiniLM embeddings, and FAISS retrieval.",
     tags: ["GenAI / RAG", "Document Intelligence"],
@@ -19,6 +20,7 @@ const PROJECTS = [
   },
   {
     title: "AI Agent Development",
+    slug: "ai-agent-development",
     imgPath: "/project-covers/ai-agent-development.webp",
     description: "A collection of tool-using agents and multi-agent research workflows, including internship skill matching, web search, citations, and critique.",
     tags: ["AI Agents", "Automation"],
@@ -29,6 +31,7 @@ const PROJECTS = [
   },
   {
     title: "TaskMaster — Offline-first Task Manager",
+    slug: "taskmaster",
     imgPath: "/project-covers/taskmaster.webp",
     description: "An interactive Kanban and list-view task manager using IndexedDB, Web Workers, and locally queued changes; server synchronization is simulated.",
     tags: ["Web Development", "JavaScript"],
@@ -39,6 +42,7 @@ const PROJECTS = [
   },
   {
     title: "Potato Leaf Disease Classification",
+    slug: "potato-leaf-classification",
     description: "A TensorFlow/Keras inference interface classifying potato leaves as Early Blight, Late Blight, or Healthy using a saved model and Gradio.",
     tags: ["AI / ML", "Computer Vision"],
     stack: ["Python", "TensorFlow", "Gradio"],
@@ -49,6 +53,7 @@ const PROJECTS = [
   },
   {
     title: "Tourist Guide Bot",
+    slug: "tourist-guide-bot",
     imgPath: "/project-covers/tourist-guide.webp",
     description: "Multilingual tourism assistant prototype combining retrieval, translation, optional LLM providers, and speech-related components.",
     tags: ["GenAI / RAG", "NLP"],
@@ -59,6 +64,7 @@ const PROJECTS = [
   },
   {
     title: "Parkinson's Disease Classification Research",
+    slug: "parkinsons-classification-research",
     description: "Medical-imaging model comparison and experimentation. View the associated Kaggle notebook for implementation and reported results.",
     tags: ["Research", "AI / ML"],
     stack: ["Python", "TensorFlow"],
@@ -286,6 +292,7 @@ function Projects({ standalone = true }) {
               status={project.status}
               isBlog={project.isBlog}
               title={project.title}
+              slug={project.slug}
               description={project.description}
               ghLink={project.ghLink}
               demoLink={project.demoLink}
