@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
-import leaf from "../../Assets/Projects/leaf.png";
-import parkinsons_disease_ai from "../../Assets/Projects/Gemini_Generated_Image_m3ax8tm3ax8tm3ax.jpg";
 
 
 const PROJECTS = [
   {
     title: "Student RAG System",
+    imgPath: "/project-covers/student-rag-system.webp",
     description: "A document-grounded question-answering prototype with PDF/TXT extraction, overlapping text chunks, MiniLM embeddings, and FAISS retrieval.",
     tags: ["GenAI / RAG", "Document Intelligence"],
     stack: ["Python", "FAISS", "Gradio"],
@@ -20,6 +19,7 @@ const PROJECTS = [
   },
   {
     title: "AI Agent Development",
+    imgPath: "/project-covers/ai-agent-development.webp",
     description: "A collection of tool-using agents and multi-agent research workflows, including internship skill matching, web search, citations, and critique.",
     tags: ["AI Agents", "Automation"],
     stack: ["Python", "LangChain", "Streamlit"],
@@ -29,6 +29,7 @@ const PROJECTS = [
   },
   {
     title: "TaskMaster — Offline-first Task Manager",
+    imgPath: "/project-covers/taskmaster.webp",
     description: "An interactive Kanban and list-view task manager using IndexedDB, Web Workers, and locally queued changes; server synchronization is simulated.",
     tags: ["Web Development", "JavaScript"],
     stack: ["JavaScript", "IndexedDB", "HTML/CSS"],
@@ -42,12 +43,13 @@ const PROJECTS = [
     tags: ["AI / ML", "Computer Vision"],
     stack: ["Python", "TensorFlow", "Gradio"],
     ghLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
-    imgPath: leaf,
+    imgPath: "/project-covers/potato-disease.webp",
     featured: true,
     status: "Prototype",
   },
   {
     title: "Tourist Guide Bot",
+    imgPath: "/project-covers/tourist-guide.webp",
     description: "Multilingual tourism assistant prototype combining retrieval, translation, optional LLM providers, and speech-related components.",
     tags: ["GenAI / RAG", "NLP"],
     stack: ["Python", "FAISS", "Gradio"],
@@ -61,7 +63,7 @@ const PROJECTS = [
     tags: ["Research", "AI / ML"],
     stack: ["Python", "TensorFlow"],
     ghLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
-    imgPath: parkinsons_disease_ai,
+    imgPath: "/project-covers/parkinsons-research.webp",
     featured: true,
     status: "Research",
   },
