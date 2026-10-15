@@ -14,6 +14,7 @@ import {
   Navigate
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import PageMetadata from "./components/Projects/PageMetadata";
 import "./style.css";
 import "./App.css";
 import "./portfolio-refinements.css";
@@ -25,6 +26,7 @@ function App() {
       <div className="App" id="scroll">
         <Navbar />
         <ScrollToTop />
+        <PageMetadata />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project" element={<Projects />} />
