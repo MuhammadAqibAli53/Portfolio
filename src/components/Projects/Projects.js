@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
@@ -273,7 +274,7 @@ function Projects({ standalone = true }) {
             />
           ))}
         </div>
-        {!standalone && <div style={{textAlign:"center",padding:"24px 0 12px"}}><a href="/project" className="hero-action primary-action" style={{display:"inline-flex"}}>Explore all {PROJECTS.length} projects →</a></div>}
+        {!standalone && <div style={{textAlign:"center",padding:"24px 0 12px"}}><Link to="/project" className="hero-action primary-action" style={{display:"inline-flex"}}>Explore all {PROJECTS.length} projects →</Link></div>}
       </Container>
     </Container>
   );
