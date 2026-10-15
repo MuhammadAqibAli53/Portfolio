@@ -284,7 +284,6 @@ function Projects({ standalone = true }) {
       fluid
       className={standalone ? "project-section" : "project-home-section"}
     >
-      {standalone && <Particle />}
       <Container className={standalone ? "pt-2 project-page-inner" : "project-home-inner"}>
         <div className="section-header project-section-header">
           <span className="section-chip">Portfolio</span>
