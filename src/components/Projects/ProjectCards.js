@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { BsGithub } from "react-icons/bs";
 import {
   CgWebsite,
@@ -24,6 +25,7 @@ function ProjectCards({
   imgPath,
   isBlog = false,
   title,
+  slug,
   description,
   ghLink = "#",
   demoLink,
@@ -106,6 +108,7 @@ function ProjectCards({
         )}
 
         <div className="h-card-actions">
+          {slug && <Link className="hero-action secondary-action h-card-btn" to={`/project/${slug}`}>Read Case Study <CgArrowRight /></Link>}
           {ghLink && <a
             className="hero-action primary-action h-card-btn h-card-cta"
             href={ghLink}
