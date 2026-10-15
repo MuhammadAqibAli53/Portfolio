@@ -42,3 +42,8 @@
 .case-study-related-card strong{font-size:1.02rem;color:#eaf1fb;line-height:1.5}
 .case-study-related-card:hover{border-color:#65809f;background:#1a2635}
 @media(max-width:600px){.case-study-related{grid-template-columns:1fr}}
+
+.case-study-flow-diagram{display:flex;flex-direction:column;align-items:stretch;gap:19px;margin:16px 0}
+.case-study-flow-step{position:relative;display:flex;align-items:center;gap:13px;min-height:52px;padding:12px 15px;border-radius:9px;background:#202c3b;border:1px solid #344457;color:#e0e8f1;font-size:.91rem;line-height:1.55}
+.case-study-flow-step:not(:last-child)::after{content:"↓";position:absolute;left:21px;bottom:-23px;color:#8aa7c4;font-size:17px;line-height:20px}
+.case-study-flow-number{display:inline-flex;flex-shrink:0;align-items:center;justify-content:center;font-weight:700;font-size:.77rem;background:#334a61;color:#eef4fa;width:30px;height:30px;border-radius:7px}
