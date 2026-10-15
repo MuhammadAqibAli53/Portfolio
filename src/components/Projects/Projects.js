@@ -21,8 +21,8 @@ const PROJECTS = [
       "Engineered a high-performance e-commerce architecture featuring a responsive React.js frontend SPA and a scalable Laravel PHP RESTful API backend. Integrated local market logistics, Cash-on-Delivery workflows, and automated WhatsApp Business order notifications.",
     tags: ["Full-Stack", "E-Commerce", "WaaS", "SaaS"],
     stack: ["React", "Laravel", "MySQL", "REST API", "Node.js"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
+    ghLink: null,
+    demoLink: null,
     highlight: true,
   },
    {
@@ -38,13 +38,13 @@ const PROJECTS = [
   {
     imgPath: leaf,
     isBlog: false,
-    title: "Deep Learning Potato disease Classification using leafs",
+    title: "Potato Leaf Disease Classification",
     description:
-      "Architected and trained an end-to-end multi-class potato disease classifier using PyTorch, TensorFlow, and OpenCV. Optimized inference latency and implemented secure software design principles to protect model endpoints against malformed inputs.",
+      "Built a TensorFlow/Keras inference interface for three-class potato leaf classification, including image preprocessing, model loading, confidence display, and Gradio integration.",
     tags: ["AI/ML", "Computer Vision", "Deep Learning"],
-    stack: ["Python", "PyTorch", "TensorFlow"],
+    stack: ["Python", "TensorFlow"],
     ghLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
-    demoLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
+    demoLink: null,
     highlight: true,
   },
   {
@@ -65,8 +65,8 @@ const PROJECTS = [
       "Designed and implemented a functional compiler front-end with a custom lexical analyzer and syntax parser. Built automated AST (Abstract Syntax Tree) generation, syntax error recovery routines, and execution metric profiling.",
     tags: ["Systems", "Compilers", "C++"],
     stack: ["Python", "MySQL", "React"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
+    ghLink: null,
+    demoLink: null,
   },
   {
     imgPath: emotion,
@@ -76,8 +76,8 @@ const PROJECTS = [
       "Built an NLP text classification pipeline tailored for Roman Urdu regional dialects. Automates customer inquiry tagging and intelligent lead routing for Pakistani e-commerce brands via direct social media messaging integrations.",
     tags: ["NLP", "Automation", "Bots"],
     stack: ["Python", "TensorFlow", "MySQL"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
+    ghLink: null,
+    demoLink: null,
   },
   {
     imgPath: suicide,
@@ -87,8 +87,8 @@ const PROJECTS = [
       "Architected a persistent, low-power background geolocation telemetry service optimized for aggressive Android OEM battery restrictions (including ColorOS/OPPO). Uses multi-threading and live socket streaming for continuous location reporting.",
     tags: ["Android", "Telemetry", "Mobile"],
     stack: ["React", "Node.js", "MySQL", "REST API"],
-    ghLink: "https://github.com",
-    demoLink: "https://your-demo.com",
+    ghLink: null,
+    demoLink: null,
   },
  
 ];
@@ -111,8 +111,8 @@ function Projects({ standalone = true }) {
   );
 
   const sectionSubtitle = standalone
-    ? "Production-grade full-stack architectures, AI/ML models, and algorithmic trading systems I have designed, built and shipped."
-    : "Full-stack platforms, AI models, and automation systems I have engineered end-to-end.";
+    ? "Selected software, AI research, and prototype projects spanning front-end engineering, machine learning, and automation."
+    : "Selected software projects, AI experiments, and engineering prototypes.";
 
   return (
     <Container
