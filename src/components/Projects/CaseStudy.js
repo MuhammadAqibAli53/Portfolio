@@ -30,7 +30,7 @@ function CaseStudy() {
         {study ? <>
           <div className="case-study-columns">
             <section><h2>The problem</h2><p>{study.problem}</p><h2>Implementation approach</h2><ol>{study.approach.map(step => <li key={step}>{step}</li>)}</ol></section>
-            <aside><h2>Technical workflow</h2><ol className="case-study-flow">{study.architecture.map(step => <li key={step}>{step}</li>)}</ol><p className="case-study-caption">Sequence summarizes the documented implementation; it is not an infrastructure deployment diagram.</p></aside>
+            <aside><h2>Technical workflow</h2><div className="case-study-flow-diagram" role="list" aria-label="Technical workflow steps">{study.architecture.map((step, i) => <div className="case-study-flow-step" role="listitem" key={step}><span className="case-study-flow-number">{String(i + 1).padStart(2, "0")}</span><span>{step}</span></div>)}</div><p className="case-study-caption">Sequence summarizes the documented implementation; it is not an infrastructure deployment diagram.</p></aside>
           </div>
           <div className="case-study-columns case-study-detail-columns">
             <section><h2>Technical decisions</h2><ul>{(study.decisions || []).map(item => <li key={item}>{item}</li>)}</ul></section>
