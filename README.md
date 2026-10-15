@@ -1,24 +1,46 @@
-# Personal Portfolio
+# Developer Portfolio
+### React · Front-end engineering · Project presentation
 
-A React portfolio presenting my projects, background, resume, and contact information.
+A multi-page developer portfolio presenting engineering projects, technical interests, background, and contact information.
 
-## Features
-- Home, About, Projects, Resume, and Contact pages
-- React Router navigation, preloader, and responsive Bootstrap interface
-- Project showcases and interactive presentation components
+**Skills demonstrated:** React · Component Composition · Client-Side Routing · Responsive UI · Bootstrap · Front-end Integration
+
+## Engineering highlights
+| Area | Implementation |
+|---|---|
+| Component architecture | Reusable components for navigation, project cards, home, about, resume, and contact |
+| Client-side navigation | React Router routes for `/`, `/project`, `/about`, `/resume`, and `/contact` |
+| User experience | Initial preloader, navigation, interactive styling, and scroll-to-top behavior |
+| Visual presentation | Project-card imagery, React Bootstrap layout, and decorative effects |
+| Maintainability | Project information kept in a `PROJECTS` array for rendering portfolio cards |
+
+## Site architecture
+```text
+src/App.js
+  |
+  +-- Navbar
+  +-- Home
+  +-- Projects -> ProjectCards
+  +-- About
+  +-- Resume
+  +-- Contact
+  +-- Footer
+```
+
+## Featured skill areas
+The portfolio presents work across AI/ML, computer vision, full-stack development, automation, and software engineering. **Portfolio project-card claims are promotional content and should be verified against the corresponding source repositories** before being treated as validated results.
 
 ## Tech stack
-React 17, React Router 6, React Bootstrap, Bootstrap 5, and Create React App.
+React 17, React Router 6, React Bootstrap, Bootstrap 5, react-icons, and Create React App.
 
 ## Run locally
 ```bash
 npm install
 npm start
 ```
-For a production build, run `npm run build`.
+Create a deployable build with `npm run build`.
 
-## Project structure
-The routes are defined in `src/App.js`; page components live under `src/components/`.
+## Known cleanup opportunity
+Some project cards currently use placeholder GitHub/demo links. Replace those with real verified links before sharing the site professionally.
 
-## Maintainer
-[Muhammad Aqib Ali](https://github.com/MuhammadAqibAli53)
+**Maintained by [Muhammad Aqib Ali](https://github.com/MuhammadAqibAli53).**
