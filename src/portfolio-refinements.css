@@ -1,0 +1,28 @@
+/* Portfolio redesign refinements: scoped overrides for legacy stylesheet */
+html { scroll-padding-top: 104px; }
+#home, #about-anchor, #projects, #contact { scroll-margin-top: 104px; }
+.portfolio-nav { z-index: 1050; width: 100%; }
+.portfolio-nav .navbar-nav { gap: .1rem; }
+.portfolio-nav .nav-link { font-size: .96rem; white-space: nowrap; padding: .65rem .7rem !important; }
+.portfolio-nav .navbar-brand { flex-shrink: 0; }
+.portfolio-nav .navbar-collapse { min-width: 0; }
+.portfolio-nav .nav-link:focus-visible, .project-discovery button:focus-visible, .h-card-actions a:focus-visible { outline: 3px solid #60d8ff; outline-offset: 3px; }
+.project-section, .project-home-section { padding-top: clamp(90px,10vw,125px) !important; padding-bottom: 65px !important; }
+.project-section .section-header, .project-home-section .section-header { margin-bottom: 20px !important; }
+.horizontal-projects-list { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px !important; align-items: stretch; }
+.h-project-card, .h-project-card.h-card-reversed { display: flex !important; flex-direction: column !important; width: 100% !important; min-width: 0; height: 100%; padding: 0 !important; gap: 0 !important; transform: none !important; animation: none !important; overflow: hidden; border: 1px solid rgba(152,161,209,.2); background: #10192e; border-radius: 22px; }
+.h-project-card .h-card-image-col, .h-project-card .h-card-content-col { width: 100% !important; min-width: 0; max-width: none !important; flex: unset !important; }
+.h-project-card .h-card-image-shell { width: 100%; height: auto !important; min-height: 0 !important; aspect-ratio: 16/9; border-radius: 0; overflow: hidden; }
+.h-project-card .h-card-image { width: 100% !important; height: 100% !important; min-height: 0 !important; object-fit: cover; }
+.h-project-card .h-card-content-col { display: flex; flex-direction: column; padding: 24px !important; }
+.h-project-card .h-card-description { line-height: 1.65; }
+.h-project-card .h-card-actions { margin-top: auto; padding-top: 18px; flex-wrap: wrap; }
+.h-project-card .h-card-glow, .h-project-card .h-card-alignicon { display: none; }
+.h-project-card:hover { transform: translateY(-3px) !important; transition: border-color .2s ease, transform .2s ease !important; border-color: #6559a4; }
+.project-discovery input::placeholder { color: #b0b7d0; opacity: 1; }
+.project-discovery input:focus { background:#161b2c; color:#fff; border-color:#60d8ff; box-shadow:0 0 0 3px rgba(96,216,255,.18); }
+.project-discovery button { border-radius: 999px; padding: 8px 13px; }
+@media (max-width: 1199px) { .portfolio-nav .nav-link { font-size:.88rem; padding:.55rem .5rem !important; } }
+@media (max-width: 991px) { .horizontal-projects-list { grid-template-columns: 1fr; max-width: 660px; margin-inline: auto; } .portfolio-nav .navbar-collapse { background: #151c33; border: 1px solid #343d5a; border-radius: 16px; margin-top: 12px; padding: 14px; max-height: calc(100vh - 96px); overflow-y: auto; } }
+@media (max-width: 575px) { .h-project-card .h-card-content-col { padding: 20px !important; } .project-section, .project-home-section { padding-top: 95px !important; } .project-discovery { padding-inline: 8px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
