@@ -179,7 +179,7 @@ function Home() {
       </div>
 
       {/* CONTACT */}
-      <div id="contact">
+      <div className="home-contact-anchor">
         <Contact standalone={false} />
       </div>
 
