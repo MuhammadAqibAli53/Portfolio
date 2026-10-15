@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
 import {
   FaReact,
   FaNodeJs,
@@ -23,33 +22,18 @@ const coreStack = [
   { name: "AI/ML", icon: <FaBrain /> },
 ];
 
-const achievements = [
-  {
-    value: "15+",
-    label: "Production Projects Shipped",
-  },
-  {
-    value: "99%",
-    label: "Client Satisfaction Rate",
-  },
-  {
-    value: "3+",
-    label: "Years of Professional Experience",
-  },
-];
-
 const strengths = [
   {
     title: "Frontend Architecture",
-    text: "Production-grade React applications with clean component patterns, state management, and accessibility in mind.",
+    text: "React interfaces, reusable components, and practical UI patterns.",
   },
   {
     title: "Backend Systems",
-    text: "Robust APIs with Node.js and Laravel — optimized for performance, security, and seamless integration.",
+    text: "Backend services, database design, and application integrations.",
   },
   {
     title: "AI Integration",
-    text: "Bridging traditional web apps with modern AI capabilities — from NLP features to predictive analytics.",
+    text: "Applied ML, retrieval-augmented generation, and tool-using agent experiments.",
   },
 ];
 
@@ -60,18 +44,16 @@ function Home2() {
         <Row className="align-items-center">
           <Col lg={7} md={8} className="home-about-description">
             <span className="section-chip">About Me</span>
-            <h1 className="home-about-title">
-              Expert Builder.{" "}
+            <h2 className="home-about-title">
+              Software Developer.{" "}
               <span className="purple">Problem Solver.</span>
-            </h1>
+            </h2>
 
             <p className="home-about-body">
-              I&apos;m a Software Engineer from Gujranwala, Pakistan, with a
-              passion for building digital products that blend clean design
-              with robust engineering. Over the past 3+ years, I&apos;ve
-              delivered end-to-end solutions from elegant customer-facing
-              interfaces to mission-critical backend systems and intelligent
-              AI-powered features.
+              I&apos;m a developer based in Gujranwala, Pakistan, exploring the
+              intersection of applied artificial intelligence and software engineering.
+              My work includes research experiments, learning projects, and functional
+              prototypes built to solve focused problems.
             </p>
 
             <p className="home-about-body secondary-copy">
@@ -112,11 +94,9 @@ function Home2() {
           </Col>
 
           <Col lg={5} md={4} className="myAvtar">
-            <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable={true}>
               <div className="avatar-card">
                 <img src={myImg} className="img-fluid" alt="Muhammad Aqib Ali" />
               </div>
-            </Tilt>
             <div className="avatar-highlights">
               <div className="avatar-highlight-item">
                 <span className="highlight-dot"></span>

@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
 import {
   AiOutlineMail,
   AiOutlinePhone,
   AiOutlineEnvironment,
-  AiOutlineClockCircle,
   AiFillGithub,
   AiOutlineTwitter,
   AiOutlineSend,
   AiOutlineUser,
   AiOutlineMessage,
-  AiOutlineCheckCircle,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -25,7 +22,7 @@ const contactInfo = [
     title: "Email",
     value: CONTACT_EMAIL,
     href: `mailto:${CONTACT_EMAIL}`,
-    sub: "I typically respond within 1 hour",
+    sub: "Email is the most reliable way to reach me",
     accent: "#22d3ee",
   },
   {
@@ -33,7 +30,7 @@ const contactInfo = [
     title: "Phone",
     value: CONTACT_PHONE,
     href: `tel:${CONTACT_PHONE.replace(/\s/g, "")}`,
-    sub: "Mon – Fri, 9 AM – 7 PM PKT",
+    sub: "Please confirm availability by email",
     accent: "#8b5cf6",
   },
   {
@@ -43,14 +40,6 @@ const contactInfo = [
     href: "https://maps.google.com/?q=Gujranwala,Pakistan",
     sub: "Open to remote & hybrid worldwide",
     accent: "#34d399",
-  },
-  {
-    icon: <AiOutlineClockCircle />,
-    title: "Working Hours",
-    value: "Mon – Sat",
-    href: "#",
-    sub: "9:00 AM – 8:00 PM PKT",
-    accent: "#f59e0b",
   },
 ];
 
@@ -72,10 +61,12 @@ const INITIAL_STATE = {
 
 function Contact({ standalone = true }) {
   const [formState, setFormState] = useState(INITIAL_STATE);
+  const [notice, setNotice] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
+    setNotice("");
   };
 
   const handleSubmit = (e) => {
@@ -91,6 +82,7 @@ Message:
 ${formState.message}`;
     
     const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setNotice("An email draft will open in your mail app. Review it and press Send there; this website does not send messages directly.");
     window.location.href = mailtoLink;
   };
 
@@ -100,7 +92,7 @@ ${formState.message}`;
 
   return (
     <section>
-      {standalone && <Particle />}
+
       <Container fluid className={sectionClass} id="contact">
         <Container className={standalone ? "pt-2" : ""}>
           {standalone ? (
@@ -111,7 +103,7 @@ ${formState.message}`;
               </h1>
               <p className="about-hero-subtitle">
                 Have a project in mind, a role to discuss, or just want to say hi?
-                Fill out the form below and I&apos;ll get back to you as soon as possible.
+                Complete the form to prepare an email in your mail app.
               </p>
             </div>
           ) : (
@@ -121,7 +113,7 @@ ${formState.message}`;
                 Ready to start a <span className="purple">project?</span>
               </h2>
               <p className="section-subtitle">
-                Drop a message below and I will get back to you shortly.
+                Prepare an email using the form, then send it from your email app.
               </p>
             </div>
           )}
@@ -175,7 +167,7 @@ ${formState.message}`;
                         <AiFillGithub />
                       </a>
                       <a
-                        href="https://www.linkedin.com/in/muhammad-aqib-ali453?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        href="https://www.linkedin.com/in/muhammad-aqib-ali453"
                         target="_blank"
                         rel="noreferrer"
                         className="contact-social-icon"
@@ -201,9 +193,9 @@ ${formState.message}`;
 
               <Col lg={7} md={7} className="contact-form-col">
                 <div className={`contact-form-shell ${formClasses}`}>
-                  <h3 className="contact-form-title">Send me a message</h3>
+                  <h3 className="contact-form-title">Compose an email</h3>
                   <p className="contact-form-subtitle">
-                    I review every message personally. Expect a reply within 24 hours.
+                    This form opens an email draft. Please review and send it from your own mail application.
                   </p>
 
                   <form onSubmit={handleSubmit} className="contact-form-content">
@@ -302,11 +294,12 @@ ${formState.message}`;
                       />
                     </div>
 
+                    {notice && <p role="status" className="contact-mailto-notice">{notice}</p>}
                     <button
                       type="submit"
                       className="hero-action primary-action contact-submit-btn"
                     >
-                      <AiOutlineSend className="hero-action-icon" /> Send Message
+                      <AiOutlineSend className="hero-action-icon" /> Open Email Draft
                     </button>
                   </form>
                 </div>

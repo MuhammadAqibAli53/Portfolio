@@ -1,44 +1,35 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
-import Particle from "../Particle";
-import Type from "./Type";
 import Home2 from "./Home2";
 import Projects from "../Projects/Projects";
 import Contact from "../Contact/Contact";
 import cvPdf from "../../Assets/cv_aqib.pdf";
+import { Link } from "react-router-dom";
 import {
   AiFillGithub,
   AiOutlineTwitter,
   AiFillInstagram,
   AiOutlineDownload,
   AiOutlineArrowRight,
-  AiFillStar,
-  AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
 import { FaLinkedinIn, FaCode, FaRobot, FaServer } from "react-icons/fa";
-
-const heroStats = [
-  { value: "3+", label: "Years Experience", icon: <AiFillStar /> },
-  { value: "15+", label: "Projects Delivered", icon: <AiOutlineFundProjectionScreen /> },
-  { value: "20+", label: "Technologies Mastered", icon: <FaCode /> },
-];
 
 const coreServices = [
   {
     icon: <FaCode />,
     title: "Web Development",
-    description: "Modern, responsive web apps with React, Next.js & Laravel.",
+    description: "Responsive applications, component-based interfaces, and accessible user experiences.",
   },
   {
     icon: <FaServer />,
     title: "Backend & APIs",
-    description: "Scalable REST APIs, microservices, and database architecture.",
+    description: "REST APIs, database-backed features, and integrations for practical applications.",
   },
   {
     icon: <FaRobot />,
     title: "AI & ML Solutions",
-    description: "Intelligent automation, predictive models, and deep learning systems.",
+    description: "Retrieval systems, agents, and ML prototypes designed around real use cases.",
   },
 ];
 
@@ -54,12 +45,12 @@ const socialLinks = [
     icon: <AiOutlineTwitter />,
   },
   {
-    href: "https://www.linkedin.com/in/muhammad-aqib-ali453?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    href: "https://www.linkedin.com/in/muhammad-aqib-ali453",
     label: "LinkedIn",
     icon: <FaLinkedinIn />,
   },
   {
-    href: "https://www.instagram.com/rana_aqib06?igsi=aDhwaWsxZ3p0MTcz",
+    href: "https://www.instagram.com/rana_aqib06",
     label: "Instagram",
     icon: <AiFillInstagram />,
   },
@@ -80,20 +71,17 @@ function Home() {
     <section>
       {/* HOME HERO */}
       <Container fluid className="home-section" id="home">
-        <Particle />
-        <div className="hero-blur hero-blur-one"></div>
-        <div className="hero-blur hero-blur-two"></div>
         <Container className="home-content">
           <Row className="align-items-center hero-row">
             <Col lg={7} md={7} className="home-header">
               <div className="hero-badge">
                 <span className="hero-badge-dot"></span>
-                Available for new projects &amp; full-time roles
+                Software engineering · Applied AI
               </div>
 
               <h1 className="heading">
-                Building Digital Products That{" "}
-                <span className="purple">Drive Results.</span>
+                Building Intelligent{" "}
+                <span className="purple">Software Experiences.</span>
               </h1>
 
               <h2 className="heading-name">
@@ -102,25 +90,14 @@ function Home() {
               </h2>
 
               <p className="hero-summary">
-                Software Engineer specializing in full-stack web development and
-                AI-powered solutions. I transform complex business challenges
-                into elegant, scalable applications — from pixel-perfect React
-                interfaces to robust Node.js &amp; Laravel backends and
-                intelligent machine learning systems.
+                Computer Science developer building practical AI agents, machine learning
+                applications, retrieval systems, and modern web interfaces. Explore
+                real code, research prototypes, and documented engineering work.
               </p>
 
-              <div className="hero-typewriter">
-                <Type />
-              </div>
 
               <div className="hero-actions">
-                <a
-                  className="hero-action primary-action"
-                  href="#projects"
-                  onClick={scrollToSection("projects")}
-                >
-                  View My Work <AiOutlineArrowRight className="hero-action-icon" />
-                </a>
+                <Link className="hero-action primary-action" to="/project">Explore Projects <AiOutlineArrowRight className="hero-action-icon" /></Link>
                 <a
                   className="hero-action secondary-action"
                   href={cvPdf}
@@ -137,24 +114,10 @@ function Home() {
                   Get In Touch
                 </a>
               </div>
-
-              <Row className="hero-stats">
-                {heroStats.map((stat) => (
-                  <Col md={4} sm={4} xs={12} key={stat.label} className="mb-3">
-                    <div className="hero-stat-card">
-                      <span className="hero-stat-icon">{stat.icon}</span>
-                      <span className="hero-stat-value">{stat.value}</span>
-                      <span className="hero-stat-label">{stat.label}</span>
-                    </div>
-                  </Col>
-                ))}
-              </Row>
             </Col>
 
             <Col lg={5} md={5} className="hero-image-column">
               <div className="hero-image-shell">
-                <div className="hero-orbit hero-orbit-one"></div>
-                <div className="hero-orbit hero-orbit-two"></div>
                 <div className="hero-tech-badge tech-badge-1">
                   <FaCode /> React
                 </div>
@@ -181,20 +144,19 @@ function Home() {
           <div className="section-header">
             <span className="section-chip">What I Do</span>
             <h2 className="section-title">
-              End-to-End Solutions for{" "}
-              <span className="purple">Modern Businesses</span>
+              Areas of{" "}
+              <span className="purple">Engineering Focus</span>
             </h2>
             <p className="section-subtitle">
-              From concept to deployment, I deliver high-quality engineering
-              across the entire product stack.
+              Selected disciplines represented by my code, research, and prototype projects.
             </p>
           </div>
           <Row className="services-grid">
-            {coreServices.map((service, idx) => (
+            {coreServices.map((service) => (
               <Col md={4} sm={6} xs={12} key={service.title} className="mb-4">
                 <div
                   className="service-card"
-                  style={{ animationDelay: `${idx * 0.1}s` }}
+                  
                 >
                   <div className="service-icon">{service.icon}</div>
                   <h3>{service.title}</h3>
@@ -217,7 +179,7 @@ function Home() {
       </div>
 
       {/* CONTACT */}
-      <div id="contact">
+      <div className="home-contact-anchor">
         <Contact standalone={false} />
       </div>
 
@@ -227,11 +189,10 @@ function Home() {
           <Col lg={5} className="home-about-social">
             <div className="social-intro-card">
               <span className="section-chip">Let&apos;s Collaborate</span>
-              <h1>Have a project in mind?</h1>
+              <h2>Have a project in mind?</h2>
               <p>
-                Whether you need a complete web application, API backend, or an
-                AI-powered feature, I&apos;d love to hear about your goals.
-                Let&apos;s build something exceptional together.
+                Interested in collaborating on applied AI, a software prototype, or a
+                web application? Share your idea and we can explore it together.
               </p>
               <div className="hero-actions mt-3">
                 <a

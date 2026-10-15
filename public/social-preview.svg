@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#10151e"/>
+<rect x="54" y="54" width="1092" height="522" rx="24" fill="#192330" stroke="#3b4b5e" stroke-width="2"/>
+<rect x="92" y="102" width="6" height="50" rx="3" fill="#8ba5c3"/>
+<text x="122" y="140" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#afc4de">SOFTWARE ENGINEERING  /  APPLIED AI</text>
+<text x="94" y="272" font-family="Arial,Helvetica,sans-serif" font-size="75" font-weight="700" fill="#f4f7fb">Muhammad Aqib Ali</text>
+<text x="96" y="339" font-family="Arial,Helvetica,sans-serif" font-size="31" fill="#bdcbdc">AI agents · Machine learning · Web applications</text>
+<rect x="95" y="402" width="216" height="55" rx="9" fill="#354b63"/>
+<text x="121" y="438" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#fff">Explore Projects</text>
+<text x="96" y="526" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#8fa8c4">muhammad-aqib-ali.vercel.app</text>
+</svg>

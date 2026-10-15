@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, within } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders portfolio identity and navigation", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /building intelligent software experiences/i })).toBeInTheDocument();
+
+  const navigation = screen.getByRole("navigation");
+  expect(within(navigation).getByRole("link", { name: /^projects$/i })).toHaveAttribute("href", "/project");
 });
