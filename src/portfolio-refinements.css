@@ -26,3 +26,48 @@ html { scroll-padding-top: 104px; }
 @media (max-width: 991px) { .horizontal-projects-list { grid-template-columns: 1fr; max-width: 660px; margin-inline: auto; } .portfolio-nav .navbar-collapse { background: #151c33; border: 1px solid #343d5a; border-radius: 16px; margin-top: 12px; padding: 14px; max-height: calc(100vh - 96px); overflow-y: auto; } }
 @media (max-width: 575px) { .h-project-card .h-card-content-col { padding: 20px !important; } .project-section, .project-home-section { padding-top: 95px !important; } .project-discovery { padding-inline: 8px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+/* Phase 3: cohesive, low-motion homepage */
+:root { --portfolio-bg:#0b1426; --portfolio-surface:#111d33; --portfolio-border:rgba(155,174,215,.18); --portfolio-text:#eff4ff; --portfolio-muted:#b8c5dc; }
+.home-section { min-height:0 !important; padding: clamp(125px,12vw,164px) 0 75px !important; overflow:hidden; }
+.home-section .home-content { padding-top:0 !important; padding-bottom:0 !important; }
+.home-section .hero-row { min-height:0 !important; row-gap:36px; }
+.home-section .heading { font-size:clamp(2.4rem,4.7vw,4.65rem) !important; line-height:1.12; letter-spacing:-.035em; max-width:760px; }
+.home-section .heading-name { font-size:clamp(1.05rem,1.8vw,1.35rem) !important; margin-top:24px; }
+.home-section .hero-summary { max-width:650px; font-size:clamp(1rem,1.35vw,1.12rem); line-height:1.8; color:var(--portfolio-muted); }
+.home-section .hero-actions { gap:12px; display:flex; flex-wrap:wrap; margin-top:25px; }
+.home-section .hero-image-shell { max-width:450px; margin-inline:auto; }
+.home-section .hero-orbit, .home-section .hero-blur, .home-section .hero-tech-badge { display:none !important; }
+.home-section .hero-image { max-width:100%; max-height:420px; object-fit:contain; }
+.services-section { padding:60px 0 !important; }
+.services-section .section-header { margin-bottom:25px; }
+.services-section .service-card { min-height:0 !important; height:100%; padding:26px !important; border:1px solid var(--portfolio-border); background:var(--portfolio-surface); animation:none !important; transform:none !important; }
+.services-section .service-card:hover { transform:translateY(-2px) !important; transition:transform .18s ease,border-color .18s ease; }
+.home-about-section { padding:72px 0 !important; min-height:0 !important; }
+.home-about-section .home-about-body { color:var(--portfolio-muted); line-height:1.8; }
+.home-about-section .avatar-card { transform:none !important; }
+.home-about-section .strength-card { min-height:0; }
+.project-home-section { padding-top:66px !important; }
+.project-home-section .horizontal-projects-list { gap:18px !important; }
+.home-social-section { padding-top:45px !important; padding-bottom:55px !important; }
+.home-social-section .social-intro-card { max-width:850px; }
+.section-header .section-subtitle { max-width:720px; margin-inline:auto; }
+.portfolio-nav { border-bottom:1px solid rgba(160,177,218,.11); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
+.portfolio-nav .navbar-nav { align-items:center; }
+.portfolio-nav .navbar-nav .nav-link { color:#d3dced !important; border-radius:10px; }
+.portfolio-nav .navbar-nav .nav-link:hover, .portfolio-nav .navbar-nav .nav-link:focus-visible { background:rgba(144,133,212,.15); color:white !important; }
+.portfolio-nav .navbar-nav .btn { margin:.2rem .35rem !important; white-space:nowrap; }
+#about-anchor, #home, #contact, #projects { scroll-margin-top:100px; }
+@media (max-width:991px) {
+ .home-section { padding-top:115px !important; padding-bottom:55px !important; }
+ .home-section .hero-image-column { display:none; }
+ .services-section, .home-about-section { padding-block:50px !important; }
+ .portfolio-nav .navbar-nav { align-items:stretch; }
+ .portfolio-nav .navbar-nav .nav-link { display:block; }
+}
+@media (max-width:575px) {
+ .home-section .heading { font-size:clamp(2.15rem,9vw,3rem) !important; }
+ .home-section .hero-actions .hero-action { justify-content:center; }
+ .services-section { padding:38px 0 !important; }
+ .home-about-section .avatar-highlights { flex-wrap:wrap; }
+}
