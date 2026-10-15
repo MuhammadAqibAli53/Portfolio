@@ -3,3 +3,6 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+// jsdom does not implement scroll APIs used by our route navigation.
+Object.defineProperty(window, "scrollTo", { writable: true, value: jest.fn() });
