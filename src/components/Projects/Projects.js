@@ -153,6 +153,55 @@ const PROJECTS = [
     stack: [],
     status: "CV-documented",
   },
+  {
+    title: "Vehicular Trust Research",
+    description: "Research project listed in my CV. Methodology, implementation, and evaluation details require additional verification.",
+    tags: ["Research", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "Gradio AI Suite",
+    description: "Application collection listed in my CV. Public implementation details have not been independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "E-Commerce & WaaS Platform",
+    description: "Project described in the earlier portfolio. The source repository and implementation claims are not yet verified.",
+    tags: ["Additional Work", "Portfolio-documented"],
+    stack: [],
+    status: "Needs verification",
+  },
+  {
+    title: "Compiler Front-End & Syntax Parser",
+    description: "Compiler project referenced in the earlier portfolio. Source code and features are not yet publicly verified.",
+    tags: ["Software Engineering", "Portfolio-documented"],
+    stack: [],
+    status: "Needs verification",
+  },
+  {
+    title: "Roman Urdu NLP Bot",
+    description: "NLP project referenced in the earlier portfolio. Model, deployment and integration claims are not independently verified.",
+    tags: ["AI / ML", "Portfolio-documented"],
+    stack: [],
+    status: "Needs verification",
+  },
+  {
+    title: "Android GPS Telemetry Prototype",
+    description: "Mobile telemetry concept documented in the earlier portfolio; public code and reported characteristics are not verified.",
+    tags: ["Additional Work", "Portfolio-documented"],
+    stack: [],
+    status: "Needs verification",
+  },
+  {
+    title: "MetaTrader Expert Advisors",
+    description: "Algorithmic trading project referenced in the earlier portfolio; its previous source link was unavailable at audit time.",
+    tags: ["Software Engineering", "Portfolio-documented"],
+    stack: [],
+    status: "Needs verification",
+  },
 ];
 
 function Projects({ standalone = true }) {
