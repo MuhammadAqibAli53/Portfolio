@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsGithub } from "react-icons/bs";
 import {
   CgWebsite,
@@ -34,6 +34,7 @@ function ProjectCards({
   highlight,
   status,
 }) {
+  const [imageFailed, setImageFailed] = useState(false);
   const alignIcon = reversed ? <CgFormatRight /> : <CgFormatLeft />;
 
   return (
@@ -55,7 +56,7 @@ function ProjectCards({
               </span>
             )}
           </div>
-          {imgPath ? <img src={imgPath} alt={`Illustration for ${title}`} className="h-card-image" loading="lazy" /> : <div className="h-card-image" role="img" aria-label={`${title} project visual`} style={{display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#18182e,#423262)",color:"#e6dafa",minHeight:"220px",padding:"20px",textAlign:"center",fontSize:"clamp(18px,2vw,28px)",fontWeight:700}}>{title}</div>}
+          {imgPath && !imageFailed ? <img src={imgPath} alt={`Concept illustration for ${title}`} className="h-card-image" loading="lazy" onError={() => setImageFailed(true)} /> : <div className="h-card-image" role="img" aria-label={`${title} project visual`} style={{display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#18182e,#423262)",color:"#e6dafa",minHeight:"220px",padding:"20px",textAlign:"center",fontSize:"clamp(18px,2vw,28px)",fontWeight:700}}>{title}</div>}
           <div className="h-card-image-border"></div>
         </div>
       </div>
