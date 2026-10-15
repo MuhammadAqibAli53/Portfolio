@@ -34,6 +34,12 @@ export default function PageMetadata() {
     updateMeta("property", "og:title", title);
     updateMeta("property", "og:description", description);
     updateMeta("property", "og:url", url);
+    updateMeta("property", "og:type", project ? "article" : "website");
+    updateMeta("name", "robots", "index,follow,max-image-preview:large");
+    const imageUrl = project && project.imgPath ? SITE + project.imgPath : SITE + "/favicon.png";
+    updateMeta("property", "og:image", imageUrl);
+    updateMeta("property", "og:image:alt", project ? `Illustrative cover for ${project.title}` : "Muhammad Aqib Ali portfolio icon");
+    updateMeta("name", "twitter:image", imageUrl);
     updateMeta("name", "twitter:title", title);
     updateMeta("name", "twitter:description", description);
     let canonical = document.head.querySelector('link[rel="canonical"]');
