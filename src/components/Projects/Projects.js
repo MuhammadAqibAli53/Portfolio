@@ -75,6 +75,7 @@ export const PROJECTS = [
   },
   {
     title: "Developer Portfolio",
+    slug: "developer-portfolio",
     imgPath: "/project-covers/developer-portfolio.webp",
     description: "React website with component-based pages, routing, responsive Bootstrap layouts, and an engineering project showcase.",
     tags: ["Web Development", "React"],
@@ -84,6 +85,7 @@ export const PROJECTS = [
   },
   {
     title: "Web Development Exercises",
+    slug: "web-development-exercises",
     imgPath: "/project-covers/web-development-exercises.webp",
     description: "A collection of website exercises covering foundational HTML, CSS, responsive layouts, and Bootstrap.",
     tags: ["Web Development", "Coursework"],
@@ -93,6 +95,7 @@ export const PROJECTS = [
   },
   {
     title: "CS Department Portal",
+    slug: "cs-department-portal",
     imgPath: "/project-covers/cs-department-portal.webp",
     description: "A multi-page computer science department website with HTML pages, styling, and static assets.",
     tags: ["Web Development", "Frontend"],
@@ -102,6 +105,7 @@ export const PROJECTS = [
   },
   {
     title: "C++ Programming Exercises",
+    slug: "c-programming-exercises",
     imgPath: "/project-covers/cpp-exercises.webp",
     description: "Programming exercises including a CGPA calculator and login examples.",
     tags: ["Software Engineering", "Coursework"],
@@ -111,6 +115,7 @@ export const PROJECTS = [
   },
   {
     title: "Instant Prompt",
+    slug: "instant-prompt",
     imgPath: "/project-covers/instant-prompt.webp",
     description: "A React/TypeScript prompt template builder demonstrating UI state, structured prompts, and simulated model responses (no live AI backend).",
     tags: ["Web Development", "GenAI / RAG"],
@@ -120,6 +125,7 @@ export const PROJECTS = [
   },
   {
     title: "OurDesk Server",
+    slug: "ourdesk-server",
     imgPath: "/project-covers/ourdesk-server.webp",
     description: "A .NET server and shared protocol repository for a remote-desktop research/development project.",
     tags: ["Software Engineering", "Backend"],
@@ -128,6 +134,7 @@ export const PROJECTS = [
   },
   {
     title: "NeuroNest VR",
+    slug: "neuronest-vr",
     imgPath: "/project-covers/neuronest-vr.webp",
     description: "Unity-based research prototype exploring interactive activities and clinician-supervised session workflows.",
     tags: ["Research", "VR"],
@@ -136,6 +143,7 @@ export const PROJECTS = [
   },
   {
     title: "Green Heaven",
+    slug: "green-heaven",
     imgPath: "/project-covers/green-heaven.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -144,6 +152,7 @@ export const PROJECTS = [
   },
   {
     title: "Virtual Try-On",
+    slug: "virtual-try-on",
     imgPath: "/project-covers/virtual-try-on.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -152,6 +161,7 @@ export const PROJECTS = [
   },
   {
     title: "Voice Emotion",
+    slug: "voice-emotion",
     imgPath: "/project-covers/voice-emotion.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -160,6 +170,7 @@ export const PROJECTS = [
   },
   {
     title: "UI Code Generator",
+    slug: "ui-code-generator",
     imgPath: "/project-covers/ui-code-generator.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -168,6 +179,7 @@ export const PROJECTS = [
   },
   {
     title: "Career Advisor",
+    slug: "career-advisor",
     imgPath: "/project-covers/career-advisor.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -176,6 +188,7 @@ export const PROJECTS = [
   },
   {
     title: "Vehicular Trust Research",
+    slug: "vehicular-trust-research",
     imgPath: "/project-covers/vehicular-trust-research.webp",
     description: "Research project listed in my CV. Methodology, implementation, and evaluation details require additional verification.",
     tags: ["Research", "CV-documented"],
@@ -184,6 +197,7 @@ export const PROJECTS = [
   },
   {
     title: "Gradio AI Suite",
+    slug: "gradio-ai-suite",
     imgPath: "/project-covers/gradio-ai-suite.webp",
     description: "Application collection listed in my CV. Public implementation details have not been independently verified.",
     tags: ["Additional Work", "CV-documented"],
@@ -192,6 +206,7 @@ export const PROJECTS = [
   },
   {
     title: "E-Commerce & WaaS Platform",
+    slug: "e-commerce-waas-platform",
     imgPath: "/project-covers/ecommerce-waas.webp",
     description: "Project described in the earlier portfolio. The source repository and implementation claims are not yet verified.",
     tags: ["Additional Work", "Portfolio-documented"],
@@ -200,6 +215,7 @@ export const PROJECTS = [
   },
   {
     title: "Compiler Front-End & Syntax Parser",
+    slug: "compiler-front-end-syntax-parser",
     imgPath: "/project-covers/compiler-front-end.webp",
     description: "Compiler project referenced in the earlier portfolio. Source code and features are not yet publicly verified.",
     tags: ["Software Engineering", "Portfolio-documented"],
@@ -208,6 +224,7 @@ export const PROJECTS = [
   },
   {
     title: "Roman Urdu NLP Bot",
+    slug: "roman-urdu-nlp-bot",
     imgPath: "/project-covers/roman-urdu-nlp-bot.webp",
     description: "NLP project referenced in the earlier portfolio. Model, deployment and integration claims are not independently verified.",
     tags: ["AI / ML", "Portfolio-documented"],
@@ -216,6 +233,7 @@ export const PROJECTS = [
   },
   {
     title: "Android GPS Telemetry Prototype",
+    slug: "android-gps-telemetry-prototype",
     imgPath: "/project-covers/android-gps-telemetry.webp",
     description: "Mobile telemetry concept documented in the earlier portfolio; public code and reported characteristics are not verified.",
     tags: ["Additional Work", "Portfolio-documented"],
@@ -224,6 +242,7 @@ export const PROJECTS = [
   },
   {
     title: "MetaTrader Expert Advisors",
+    slug: "metatrader-expert-advisors",
     imgPath: "/project-covers/metatrader-expert-advisors.webp",
     description: "Algorithmic trading project referenced in the earlier portfolio; its previous source link was unavailable at audit time.",
     tags: ["Software Engineering", "Portfolio-documented"],
