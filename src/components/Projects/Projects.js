@@ -69,6 +69,7 @@ const PROJECTS = [
   },
   {
     title: "Developer Portfolio",
+    imgPath: "/project-covers/developer-portfolio.webp",
     description: "React website with component-based pages, routing, responsive Bootstrap layouts, and an engineering project showcase.",
     tags: ["Web Development", "React"],
     stack: ["React", "JavaScript", "Bootstrap"],
@@ -77,6 +78,7 @@ const PROJECTS = [
   },
   {
     title: "Web Development Exercises",
+    imgPath: "/project-covers/web-development-exercises.webp",
     description: "A collection of website exercises covering foundational HTML, CSS, responsive layouts, and Bootstrap.",
     tags: ["Web Development", "Coursework"],
     stack: ["HTML/CSS", "Bootstrap"],
@@ -85,6 +87,7 @@ const PROJECTS = [
   },
   {
     title: "CS Department Portal",
+    imgPath: "/project-covers/cs-department-portal.webp",
     description: "A multi-page computer science department website with HTML pages, styling, and static assets.",
     tags: ["Web Development", "Frontend"],
     stack: ["HTML/CSS", "JavaScript"],
@@ -93,6 +96,7 @@ const PROJECTS = [
   },
   {
     title: "C++ Programming Exercises",
+    imgPath: "/project-covers/cpp-exercises.webp",
     description: "Programming exercises including a CGPA calculator and login examples.",
     tags: ["Software Engineering", "Coursework"],
     stack: ["C++"],
@@ -101,6 +105,7 @@ const PROJECTS = [
   },
   {
     title: "Instant Prompt",
+    imgPath: "/project-covers/instant-prompt.webp",
     description: "A React/TypeScript prompt template builder demonstrating UI state, structured prompts, and simulated model responses (no live AI backend).",
     tags: ["Web Development", "GenAI / RAG"],
     stack: ["React", "TypeScript"],
@@ -109,6 +114,7 @@ const PROJECTS = [
   },
   {
     title: "OurDesk Server",
+    imgPath: "/project-covers/ourdesk-server.webp",
     description: "A .NET server and shared protocol repository for a remote-desktop research/development project.",
     tags: ["Software Engineering", "Backend"],
     stack: [".NET", "C#"],
@@ -116,6 +122,7 @@ const PROJECTS = [
   },
   {
     title: "NeuroNest VR",
+    imgPath: "/project-covers/neuronest-vr.webp",
     description: "Unity-based research prototype exploring interactive activities and clinician-supervised session workflows.",
     tags: ["Research", "VR"],
     stack: ["Unity", "C#"],
@@ -123,6 +130,7 @@ const PROJECTS = [
   },
   {
     title: "Green Heaven",
+    imgPath: "/project-covers/green-heaven.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -130,6 +138,7 @@ const PROJECTS = [
   },
   {
     title: "Virtual Try-On",
+    imgPath: "/project-covers/virtual-try-on.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -137,6 +146,7 @@ const PROJECTS = [
   },
   {
     title: "Voice Emotion",
+    imgPath: "/project-covers/voice-emotion.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -144,6 +154,7 @@ const PROJECTS = [
   },
   {
     title: "UI Code Generator",
+    imgPath: "/project-covers/ui-code-generator.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -151,6 +162,7 @@ const PROJECTS = [
   },
   {
     title: "Career Advisor",
+    imgPath: "/project-covers/career-advisor.webp",
     description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -158,6 +170,7 @@ const PROJECTS = [
   },
   {
     title: "Vehicular Trust Research",
+    imgPath: "/project-covers/vehicular-trust-research.webp",
     description: "Research project listed in my CV. Methodology, implementation, and evaluation details require additional verification.",
     tags: ["Research", "CV-documented"],
     stack: [],
@@ -165,6 +178,7 @@ const PROJECTS = [
   },
   {
     title: "Gradio AI Suite",
+    imgPath: "/project-covers/gradio-ai-suite.webp",
     description: "Application collection listed in my CV. Public implementation details have not been independently verified.",
     tags: ["Additional Work", "CV-documented"],
     stack: [],
@@ -172,6 +186,7 @@ const PROJECTS = [
   },
   {
     title: "E-Commerce & WaaS Platform",
+    imgPath: "/project-covers/ecommerce-waas.webp",
     description: "Project described in the earlier portfolio. The source repository and implementation claims are not yet verified.",
     tags: ["Additional Work", "Portfolio-documented"],
     stack: [],
@@ -179,6 +194,7 @@ const PROJECTS = [
   },
   {
     title: "Compiler Front-End & Syntax Parser",
+    imgPath: "/project-covers/compiler-front-end.webp",
     description: "Compiler project referenced in the earlier portfolio. Source code and features are not yet publicly verified.",
     tags: ["Software Engineering", "Portfolio-documented"],
     stack: [],
@@ -186,6 +202,7 @@ const PROJECTS = [
   },
   {
     title: "Roman Urdu NLP Bot",
+    imgPath: "/project-covers/roman-urdu-nlp-bot.webp",
     description: "NLP project referenced in the earlier portfolio. Model, deployment and integration claims are not independently verified.",
     tags: ["AI / ML", "Portfolio-documented"],
     stack: [],
@@ -193,6 +210,7 @@ const PROJECTS = [
   },
   {
     title: "Android GPS Telemetry Prototype",
+    imgPath: "/project-covers/android-gps-telemetry.webp",
     description: "Mobile telemetry concept documented in the earlier portfolio; public code and reported characteristics are not verified.",
     tags: ["Additional Work", "Portfolio-documented"],
     stack: [],
@@ -200,6 +218,7 @@ const PROJECTS = [
   },
   {
     title: "MetaTrader Expert Advisors",
+    imgPath: "/project-covers/metatrader-expert-advisors.webp",
     description: "Algorithmic trading project referenced in the earlier portfolio; its previous source link was unavailable at audit time.",
     tags: ["Software Engineering", "Portfolio-documented"],
     stack: [],
