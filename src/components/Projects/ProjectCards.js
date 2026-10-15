@@ -42,7 +42,6 @@ function ProjectCards({
   return (
     <article
       className={`h-project-card ${reversed ? "h-card-reversed" : ""}`}
-      style={{ animationDelay: `${index * 0.08}s` }}
     >
       <div className="h-card-glow"></div>
 
@@ -58,7 +57,7 @@ function ProjectCards({
               </span>
             )}
           </div>
-          {imgPath && !imageFailed ? <img src={imgPath} alt={`Concept illustration for ${title}`} className="h-card-image" loading="lazy" onError={() => setImageFailed(true)} /> : <div className="h-card-image" role="img" aria-label={`${title} project visual`} style={{display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#18182e,#423262)",color:"#e6dafa",minHeight:"220px",padding:"20px",textAlign:"center",fontSize:"clamp(18px,2vw,28px)",fontWeight:700}}>{title}</div>}
+          {imgPath && !imageFailed ? <img src={imgPath} alt={`Concept illustration for ${title}`} className="h-card-image" loading="lazy" decoding="async" width="960" height="540" onError={() => setImageFailed(true)} /> : <div className="h-card-image" role="img" aria-label={`${title} project visual`} style={{display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#18182e,#423262)",color:"#e6dafa",minHeight:"220px",padding:"20px",textAlign:"center",fontSize:"clamp(18px,2vw,28px)",fontWeight:700}}>{title}</div>}
           <div className="h-card-image-border"></div>
         </div>
       </div>
@@ -108,7 +107,7 @@ function ProjectCards({
         )}
 
         <div className="h-card-actions">
-          {slug && <Link className="hero-action secondary-action h-card-btn" to={`/project/${slug}`}>Read Case Study <CgArrowRight /></Link>}
+          {slug && <Link className="hero-action secondary-action h-card-btn" to={`/project/${slug}`}>{highlight ? "Read Case Study" : "Project Details"} <CgArrowRight /></Link>}
           {ghLink && <a
             className="hero-action primary-action h-card-btn h-card-cta"
             href={ghLink}
