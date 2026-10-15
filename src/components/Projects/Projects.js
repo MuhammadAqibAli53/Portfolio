@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -14,86 +14,153 @@ import metatrader from "../../Assets/Projects/meta.png";
 
 const PROJECTS = [
   {
-    imgPath: chatify,
-    isBlog: false,
-    title: "Decoupled E-Commerce & WaaS Platform",
-    description:
-      "Engineered a high-performance e-commerce architecture featuring a responsive React.js frontend SPA and a scalable Laravel PHP RESTful API backend. Integrated local market logistics, Cash-on-Delivery workflows, and automated WhatsApp Business order notifications.",
-    tags: ["Full-Stack", "E-Commerce", "WaaS", "SaaS"],
-    stack: ["React", "Laravel", "MySQL", "REST API", "Node.js"],
-    ghLink: null,
-    demoLink: null,
-    highlight: true,
+    title: "Student RAG System",
+    description: "A document-grounded question-answering prototype with PDF/TXT extraction, overlapping text chunks, MiniLM embeddings, and FAISS retrieval.",
+    tags: ["GenAI / RAG", "Document Intelligence"],
+    stack: ["Python", "FAISS", "Gradio"],
+    ghLink: "https://github.com/MuhammadAqibAli53/student-rag-system",
+    featured: true,
+    status: "Prototype",
   },
-   {
-  imgPath: parkinsons_disease_ai,
-  isBlog: false,
-  title: "Parkinson's Disease Classification from MRI",
-  description: "Conducted an end-to-end comparative study of eleven classification models—spanning classical machine learning, deep learning, and transformer-based architectures—to distinguish Parkinson's Disease patients from healthy controls. Built a robust preprocessing pipeline to unify 3,630 raw structural MRI and DaTscan images. Utilized SHAP and LIME to provide explainability for the textural features and spatial regions driving individual predictions.",
-  tags: ["Machine Learning", "Deep Learning", "Transformers", "Medical Imaging"],
-  stack: ["Python", "Keras", "XGBoost", "Hugging Face"],
-  ghLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
-  demoLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
-},
   {
-    imgPath: leaf,
-    isBlog: false,
+    title: "AI Agent Development",
+    description: "A collection of tool-using agents and multi-agent research workflows, including internship skill matching, web search, citations, and critique.",
+    tags: ["AI Agents", "Automation"],
+    stack: ["Python", "LangChain", "Streamlit"],
+    ghLink: "https://github.com/MuhammadAqibAli53/Agent_development",
+    featured: true,
+    status: "Educational projects",
+  },
+  {
+    title: "TaskMaster — Offline-first Task Manager",
+    description: "An interactive Kanban and list-view task manager using IndexedDB, Web Workers, and locally queued changes; server synchronization is simulated.",
+    tags: ["Web Development", "JavaScript"],
+    stack: ["JavaScript", "IndexedDB", "HTML/CSS"],
+    ghLink: "https://github.com/MuhammadAqibAli53/Task-Manager-Project",
+    featured: true,
+    status: "Prototype",
+  },
+  {
     title: "Potato Leaf Disease Classification",
-    description:
-      "Built a TensorFlow/Keras inference interface for three-class potato leaf classification, including image preprocessing, model loading, confidence display, and Gradio integration.",
-    tags: ["AI/ML", "Computer Vision", "Deep Learning"],
-    stack: ["Python", "TensorFlow"],
+    description: "A TensorFlow/Keras inference interface classifying potato leaves as Early Blight, Late Blight, or Healthy using a saved model and Gradio.",
+    tags: ["AI / ML", "Computer Vision"],
+    stack: ["Python", "TensorFlow", "Gradio"],
     ghLink: "https://github.com/MuhammadAqibAli53/Potato_Disease_classification",
-    demoLink: null,
-    highlight: true,
+    imgPath: leaf,
+    featured: true,
+    status: "Prototype",
   },
   {
-  imgPath: metatrader,
-  isBlog: false,
-  title: "MT4 & MT5 Algorithmic Trading Expert Advisors",
-  description: "Developed and optimized automated trading bots (Expert Advisors) and custom indicators for both MetaTrader 4 and MetaTrader 5 platforms. Engineered robust risk management features, dynamic position sizing, and algorithmic order execution pipelines based on strict technical criteria. Conducted extensive strategy backtesting and structural bug fixing for legacy MQL4/MQL5 scripts to ensure high-frequency trading stability and capital preservation.",
-  tags: ["Algorithmic Trading", "MetaTrader", "Expert Advisors", "Quantitative Finance"],
-  stack: ["MQL4", "MQL5", "C++", "Financial APIs"],
-  ghLink: "https://github.com/muhammadaqibali/metatrader-expert-advisors",
-  demoLink: "https://github.com/muhammadaqibali/metatrader-expert-advisors",
-},
-  {
-    imgPath: bitsOfCode,
-    isBlog: false,
-    title: "Custom Compiler Front-End & Syntax Parser",
-    description:
-      "Designed and implemented a functional compiler front-end with a custom lexical analyzer and syntax parser. Built automated AST (Abstract Syntax Tree) generation, syntax error recovery routines, and execution metric profiling.",
-    tags: ["Systems", "Compilers", "C++"],
-    stack: ["Python", "MySQL", "React"],
-    ghLink: null,
-    demoLink: null,
+    title: "Tourist Guide Bot",
+    description: "Multilingual tourism assistant prototype combining retrieval, translation, optional LLM providers, and speech-related components.",
+    tags: ["GenAI / RAG", "NLP"],
+    stack: ["Python", "FAISS", "Gradio"],
+    ghLink: "https://github.com/MuhammadAqibAli53/Tourist_Guide_Bot",
+    featured: true,
+    status: "Prototype",
   },
   {
-    imgPath: emotion,
-    isBlog: false,
-    title: "Roman Urdu NLP & Social Outreach Bot",
-    description:
-      "Built an NLP text classification pipeline tailored for Roman Urdu regional dialects. Automates customer inquiry tagging and intelligent lead routing for Pakistani e-commerce brands via direct social media messaging integrations.",
-    tags: ["NLP", "Automation", "Bots"],
-    stack: ["Python", "TensorFlow", "MySQL"],
-    ghLink: null,
-    demoLink: null,
+    title: "Parkinson's Disease Classification Research",
+    description: "Medical-imaging model comparison and experimentation. View the associated Kaggle notebook for implementation and reported results.",
+    tags: ["Research", "AI / ML"],
+    stack: ["Python", "TensorFlow"],
+    ghLink: "https://www.kaggle.com/code/muhammadaqibali/ppmi-pd-classification-ml-dl-transformer",
+    imgPath: parkinsons_disease_ai,
+    featured: true,
+    status: "Research",
   },
   {
-    imgPath: suicide,
-    isBlog: false,
-    title: "Background GPS Tracking Telemetry Demo",
-    description:
-      "Architected a persistent, low-power background geolocation telemetry service optimized for aggressive Android OEM battery restrictions (including ColorOS/OPPO). Uses multi-threading and live socket streaming for continuous location reporting.",
-    tags: ["Android", "Telemetry", "Mobile"],
-    stack: ["React", "Node.js", "MySQL", "REST API"],
-    ghLink: null,
-    demoLink: null,
+    title: "Developer Portfolio",
+    description: "React website with component-based pages, routing, responsive Bootstrap layouts, and an engineering project showcase.",
+    tags: ["Web Development", "React"],
+    stack: ["React", "JavaScript", "Bootstrap"],
+    ghLink: "https://github.com/MuhammadAqibAli53/Portfolio",
+    status: "Active",
   },
- 
+  {
+    title: "Web Development Exercises",
+    description: "A collection of website exercises covering foundational HTML, CSS, responsive layouts, and Bootstrap.",
+    tags: ["Web Development", "Coursework"],
+    stack: ["HTML/CSS", "Bootstrap"],
+    ghLink: "https://github.com/MuhammadAqibAli53/web_development_tasks",
+    status: "Coursework",
+  },
+  {
+    title: "CS Department Portal",
+    description: "A multi-page computer science department website with HTML pages, styling, and static assets.",
+    tags: ["Web Development", "Frontend"],
+    stack: ["HTML/CSS", "JavaScript"],
+    ghLink: "https://github.com/MuhammadAqibAli53/cs-dept-portal",
+    status: "Prototype",
+  },
+  {
+    title: "C++ Programming Exercises",
+    description: "Programming exercises including a CGPA calculator and login examples.",
+    tags: ["Software Engineering", "Coursework"],
+    stack: ["C++"],
+    ghLink: "https://github.com/MuhammadAqibAli53/codealpha_tasks",
+    status: "Coursework",
+  },
+  {
+    title: "Instant Prompt",
+    description: "A React/TypeScript prompt template builder demonstrating UI state, structured prompts, and simulated model responses (no live AI backend).",
+    tags: ["Web Development", "GenAI / RAG"],
+    stack: ["React", "TypeScript"],
+    ghLink: "https://github.com/MuhammadAqibAli53/instant-prompt",
+    status: "UI prototype",
+  },
+  {
+    title: "OurDesk Server",
+    description: "A .NET server and shared protocol repository for a remote-desktop research/development project.",
+    tags: ["Software Engineering", "Backend"],
+    stack: [".NET", "C#"],
+    status: "Private repository",
+  },
+  {
+    title: "NeuroNest VR",
+    description: "Unity-based research prototype exploring interactive activities and clinician-supervised session workflows.",
+    tags: ["Research", "VR"],
+    stack: ["Unity", "C#"],
+    status: "Private FYP prototype",
+  },
+  {
+    title: "Green Heaven",
+    description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "Virtual Try-On",
+    description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "Voice Emotion",
+    description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "UI Code Generator",
+    description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
+  {
+    title: "Career Advisor",
+    description: "Additional project listed in my CV. Public implementation and feature details are not independently verified.",
+    tags: ["Additional Work", "CV-documented"],
+    stack: [],
+    status: "CV-documented",
+  },
 ];
 
-function Projects({ standalone = true }) {
+function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCategory] = useState("All");\n  const [search, setSearch] = useState("");\n  const categories = ["All", ...new Set(PROJECTS.flatMap((project) => project.tags.slice(0, 1)))];\n  const visibleProjects = PROJECTS.filter((project) => {\n    const categoryMatches = activeCategory === "All" || project.tags[0] === activeCategory;\n    const query = search.trim().toLowerCase();\n    return categoryMatches && (!query || [project.title, project.description, ...project.tags, ...project.stack].join(" ").toLowerCase().includes(query));\n  });
   const sectionTitle = standalone ? (
     <>
       My{" "}
@@ -133,7 +200,7 @@ function Projects({ standalone = true }) {
               key={project.title}
               index={idx}
               reversed={idx % 2 === 1}
-              imgPath={project.imgPath}
+              imgPath={project.imgPath}\n              status={project.status}
               isBlog={project.isBlog}
               title={project.title}
               description={project.description}
@@ -141,7 +208,7 @@ function Projects({ standalone = true }) {
               demoLink={project.demoLink}
               tags={project.tags}
               stack={project.stack}
-              highlight={project.highlight}
+              highlight={project.featured}
             />
           ))}
         </div>
