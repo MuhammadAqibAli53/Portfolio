@@ -23,22 +23,15 @@ function NavBar() {
 
   useEffect(() => {
     setExpanded(false);
-    if (location.pathname !== "/" || !location.hash) return;
-    const id = location.hash.slice(1);
-    let frame = requestAnimationFrame(() => {
-      const element = document.getElementById(id);
-      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [location.pathname, location.hash, location.key]);
+  }, [location.pathname, location.hash]);
 
   const go = (event, section) => {
     event.preventDefault();
     setExpanded(false);
     if (location.pathname === "/") {
       const element = document.getElementById(section);
-      if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (location.hash !== `#${section}`) navigate(`/#${section}`, { replace: true, preventScrollReset: true });
+      if (element && location.hash === `#${section}`) element.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (location.hash !== `#${section}`) navigate(`/#${section}`, { replace: true });
     } else {
       navigate(`/#${section}`);
     }
