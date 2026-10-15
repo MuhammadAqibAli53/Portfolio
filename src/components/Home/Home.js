@@ -18,12 +18,6 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn, FaCode, FaRobot, FaServer } from "react-icons/fa";
 
-const heroStats = [
-  { value: "3+", label: "Years Experience", icon: <AiFillStar /> },
-  { value: "15+", label: "Projects Delivered", icon: <AiOutlineFundProjectionScreen /> },
-  { value: "20+", label: "Technologies Mastered", icon: <FaCode /> },
-];
-
 const coreServices = [
   {
     icon: <FaCode />,
@@ -92,8 +86,8 @@ function Home() {
               </div>
 
               <h1 className="heading">
-                Building Digital Products That{" "}
-                <span className="purple">Drive Results.</span>
+                Building Intelligent{" "}
+                <span className="purple">Software Experiences.</span>
               </h1>
 
               <h2 className="heading-name">
@@ -102,11 +96,9 @@ function Home() {
               </h2>
 
               <p className="hero-summary">
-                Software Engineer specializing in full-stack web development and
-                AI-powered solutions. I transform complex business challenges
-                into elegant, scalable applications — from pixel-perfect React
-                interfaces to robust Node.js &amp; Laravel backends and
-                intelligent machine learning systems.
+                Computer Science developer building practical AI agents, machine learning
+                applications, retrieval systems, and modern web interfaces. Explore
+                real code, research prototypes, and documented engineering work.
               </p>
 
               <div className="hero-typewriter">
@@ -137,18 +129,6 @@ function Home() {
                   Get In Touch
                 </a>
               </div>
-
-              <Row className="hero-stats">
-                {heroStats.map((stat) => (
-                  <Col md={4} sm={4} xs={12} key={stat.label} className="mb-3">
-                    <div className="hero-stat-card">
-                      <span className="hero-stat-icon">{stat.icon}</span>
-                      <span className="hero-stat-value">{stat.value}</span>
-                      <span className="hero-stat-label">{stat.label}</span>
-                    </div>
-                  </Col>
-                ))}
-              </Row>
             </Col>
 
             <Col lg={5} md={5} className="hero-image-column">
