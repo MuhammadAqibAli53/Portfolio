@@ -19,9 +19,6 @@ import "./portfolio-refinements.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return () => clearTimeout(timer);
-  }, []);
-
   return (
     <Router>
       <div className="App" id="scroll">
