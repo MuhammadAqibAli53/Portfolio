@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCards";
-import Particle from "../Particle";
 
 
 
@@ -282,8 +281,8 @@ function Projects({ standalone = true }) {
 
   return (
     <Container
-      fluid={standalone ? "project-section" : "project-home-section"}
-      id={standalone ? undefined : undefined}
+      fluid
+      className={standalone ? "project-section" : "project-home-section"}
     >
       {standalone && <Particle />}
       <Container className={standalone ? "pt-2 project-page-inner" : "project-home-inner"}>
