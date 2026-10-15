@@ -30,3 +30,15 @@
 .case-study-page a:focus-visible{outline:2px solid #8bcaff;outline-offset:4px;border-radius:3px}
 @media(max-width:760px){.case-study-page{padding:100px 18px 55px}.case-study-columns{grid-template-columns:1fr}.case-study-columns>section,.case-study-columns>aside,.case-study-note{padding:23px}.case-study-visual img{max-height:290px}.case-study-header h1{font-size:clamp(2rem,7vw,3rem)}}
 @media(prefers-reduced-motion:reduce){.case-study-page *{scroll-behavior:auto!important}}
+
+.case-study-disclosure{margin-top:16px!important;border-left:3px solid #7390ab;padding:10px 14px;background:#192433;color:#c6d3df!important;font-size:.9rem!important}
+.case-study-detail-columns{margin-top:20px}
+.case-study-detail-columns ul{margin:0;padding-left:22px}
+.case-study-detail-columns li{padding-left:5px;margin-bottom:12px}
+.case-study-caption{font-size:.79rem!important;color:#98a8ba!important;margin:24px 0 0}
+.case-study-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:27px}
+.case-study-related-card{display:flex;flex-direction:column;gap:8px;background:#151d29;border:1px solid #2a3647;border-radius:12px;padding:20px;text-decoration:none!important;min-width:0}
+.case-study-related-card span{font-size:.82rem;color:#9bb1c9}
+.case-study-related-card strong{font-size:1.02rem;color:#eaf1fb;line-height:1.5}
+.case-study-related-card:hover{border-color:#65809f;background:#1a2635}
+@media(max-width:600px){.case-study-related{grid-template-columns:1fr}}
