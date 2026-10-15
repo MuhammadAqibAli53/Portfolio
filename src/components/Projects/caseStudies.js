@@ -53,5 +53,51 @@ export const CASE_STUDIES = {
     contribution: "Notebook-linked research work with methodological details requiring notebook review.",
     decisions: ["A notebook records experimental analysis and comparisons."],
     challenges: ["Reproducibility requires the dataset, training environment, and evaluation protocol.", "The research must not be presented as a clinical diagnostic service."]
+  },
+  "developer-portfolio": {
+    problem:"Present software projects in a navigable, accessible personal website.",
+    approach:["Structure the site with React components and React Router routes.","Maintain project metadata for featured and full catalog views.","Add searchable project cards and reusable case-study pages."],
+    architecture:["React routes","Shared project catalog","Project filters and cards","Case study detail route","Portfolio pages"],
+    decisions:["Keep the existing Create React App build during redesign to limit migration risk."],
+    challenges:["Cross-page navigation and scrolling must be tested at multiple viewports.","Generated covers are concept visuals rather than product screenshots."],
+    notes:"This case study describes the current portfolio source and redesign branch; production deployment of the branch is not yet confirmed.",
+    contribution:"Repository-backed React interface and portfolio content."
+  },
+  "instant-prompt": {
+    problem:"Explore a user interface for composing structured prompts from inputs and templates.",
+    approach:["Use React and TypeScript UI components.","Provide fields and state for prompt customization.","Display assembled prompt output."],
+    architecture:["User input","Template selection","Prompt composition","Preview and copy UI"],
+    decisions:["Keep prompt generation visible to the user for manual review."],
+    challenges:["Model calls shown in examples are simulated; a live AI backend has not been verified."],
+    notes:"A UI prototype, not an independently verified hosted LLM application.",
+    contribution:"Source-backed prompt-building frontend prototype."
+  },
+  "cs-department-portal": {
+    problem:"Present department information and resources in a multipage website.",
+    approach:["Organize department content into static pages.","Build site layout using HTML/CSS and available JavaScript.","Maintain navigable content and media assets."],
+    architecture:["Page structure","Shared styling","Static assets","Browser presentation"],
+    decisions:["A static multipage structure suits informational content."],
+    challenges:["Accessibility, mobile layout, and factual content require page-level review."],
+    notes:"Frontend source is available; a working institutional production deployment is not verified.",
+    contribution:"Repository-backed department website prototype."
+  },
+  "ourdesk-server": {
+    problem:"Support experimental remote desktop connectivity through a shared service.",
+    approach:["Develop server-side .NET components.","Maintain common protocol and message interfaces.","Experiment with session connectivity and relay behavior."],
+    architecture:["Remote desktop clients","Shared protocol","Server coordination","Session exchange"],
+    decisions:["Separate common protocol contracts from platform-specific clients."],
+    challenges:["Full end-to-end security and WAN performance need independent tests.","The related repository is private."],
+    notes:"Private development prototype. The description is not a claim of a production-ready or independently audited remote-desktop solution.",
+    contribution:"Private source-backed engineering work."
+  },
+  "neuronest-vr": {
+    problem:"Explore supervised interactive VR activities for structured practice sessions.",
+    approach:["Build Unity scenes for guided interactions.","Organize activity and session state.","Prototype supervised workflows for clinician-oriented use."],
+    architecture:["Unity scene","Guided activity","User interaction","Session state","Review workflow"],
+    decisions:["Keep the experience prototype-oriented and supervised."],
+    challenges:["Clinical effectiveness has not been established.","Device compatibility and backend integration require separate verification."],
+    notes:"Private FYP prototype; not a validated medical treatment or independently verified deployment.",
+    contribution:"Documented Unity VR prototype work."
   }
+
 };
