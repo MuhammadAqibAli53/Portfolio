@@ -160,7 +160,7 @@ const PROJECTS = [
   },
 ];
 
-function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCategory] = useState("All");\n  const [search, setSearch] = useState("");\n  const categories = ["All", ...new Set(PROJECTS.flatMap((project) => project.tags.slice(0, 1)))];\n  const visibleProjects = PROJECTS.filter((project) => {\n    const categoryMatches = activeCategory === "All" || project.tags[0] === activeCategory;\n    const query = search.trim().toLowerCase();\n    return categoryMatches && (!query || [project.title, project.description, ...project.tags, ...project.stack].join(" ").toLowerCase().includes(query));\n  });
+function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCategory] = useState("All");\n  const [search, setSearch] = useState("");\n  const categories = ["All", ...new Set(PROJECTS.flatMap((project) => project.tags.slice(0, 1)))];\n  const visibleProjects = (standalone ? PROJECTS : PROJECTS.filter((project) => project.featured)).filter((project) => {\n    const categoryMatches = activeCategory === "All" || project.tags[0] === activeCategory;\n    const query = search.trim().toLowerCase();\n    return categoryMatches && (!query || [project.title, project.description, ...project.tags, ...project.stack].join(" ").toLowerCase().includes(query));\n  });
   const sectionTitle = standalone ? (
     <>
       My{" "}
@@ -212,6 +212,7 @@ function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCa
             />
           ))}
         </div>
+        {!standalone && <div style={{textAlign:"center",padding:"24px 0 12px"}}><a href="/project" className="hero-action primary-action" style={{display:"inline-flex"}}>Explore all {PROJECTS.length} projects →</a></div>}
       </Container>
     </Container>
   );
