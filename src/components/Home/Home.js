@@ -12,8 +12,6 @@ import {
   AiFillInstagram,
   AiOutlineDownload,
   AiOutlineArrowRight,
-  AiFillStar,
-  AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
 import { FaLinkedinIn, FaCode, FaRobot, FaServer } from "react-icons/fa";
 
