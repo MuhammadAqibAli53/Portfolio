@@ -4,12 +4,7 @@ import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
 import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
 import parkinsons_disease_ai from "../../Assets/Projects/Gemini_Generated_Image_m3ax8tm3ax8tm3ax.jpg";
-import metatrader from "../../Assets/Projects/meta.png";
 
 
 const PROJECTS = [
@@ -160,7 +155,15 @@ const PROJECTS = [
   },
 ];
 
-function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCategory] = useState("All");\n  const [search, setSearch] = useState("");\n  const categories = ["All", ...new Set(PROJECTS.flatMap((project) => project.tags.slice(0, 1)))];\n  const visibleProjects = (standalone ? PROJECTS : PROJECTS.filter((project) => project.featured)).filter((project) => {\n    const categoryMatches = activeCategory === "All" || project.tags[0] === activeCategory;\n    const query = search.trim().toLowerCase();\n    return categoryMatches && (!query || [project.title, project.description, ...project.tags, ...project.stack].join(" ").toLowerCase().includes(query));\n  });
+function Projects({ standalone = true }) {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [search, setSearch] = useState("");
+  const categories = ["All", ...new Set(PROJECTS.flatMap((project) => project.tags.slice(0, 1)))];
+  const visibleProjects = (standalone ? PROJECTS : PROJECTS.filter((project) => project.featured)).filter((project) => {
+    const categoryMatches = activeCategory === "All" || project.tags[0] === activeCategory;
+    const query = search.trim().toLowerCase();
+    return categoryMatches && (!query || [project.title, project.description, ...project.tags, ...project.stack].join(" ").toLowerCase().includes(query));
+  });
   const sectionTitle = standalone ? (
     <>
       My{" "}
@@ -194,13 +197,22 @@ function Projects({ standalone = true }) {\n  const [activeCategory, setActiveCa
           <p className="section-subtitle">{sectionSubtitle}</p>
         </div>
 
+        {standalone && <div className="project-discovery" style={{maxWidth:"1080px",margin:"24px auto"}}>
+          <label htmlFor="project-search" className="visually-hidden">Search projects</label>
+          <input id="project-search" className="form-control" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search projects, technologies, or skills..." style={{background:"#161b2c",color:"#f5f5ff",border:"1px solid #4c4269",padding:"14px 18px"}} />
+          <div role="group" aria-label="Filter projects" style={{display:"flex",gap:"8px",flexWrap:"wrap",marginTop:"14px"}}>
+            {categories.map((category) => <button key={category} type="button" className={`btn btn-sm ${activeCategory===category?"btn-light":"btn-outline-light"}`} onClick={()=>setActiveCategory(category)} aria-pressed={activeCategory===category}>{category}</button>)}
+          </div>
+          <p style={{color:"#bec4d4",marginTop:"12px"}}>{visibleProjects.length} projects shown · Public, private, and CV-documented work are labeled separately.</p>
+        </div>}
         <div className="horizontal-projects-list">
-          {PROJECTS.map((project, idx) => (
+          {visibleProjects.map((project, idx) => (
             <ProjectCard
               key={project.title}
               index={idx}
               reversed={idx % 2 === 1}
-              imgPath={project.imgPath}\n              status={project.status}
+              imgPath={project.imgPath}
+              status={project.status}
               isBlog={project.isBlog}
               title={project.title}
               description={project.description}
