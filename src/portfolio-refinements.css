@@ -71,3 +71,23 @@ html { scroll-padding-top: 104px; }
  .services-section { padding:38px 0 !important; }
  .home-about-section .avatar-highlights { flex-wrap:wrap; }
 }
+
+/* Phase 6: responsive content stability and keyboard usability */
+.h-project-card .h-card-title,.h-project-card .h-card-description,.h-project-card .h-card-tech-name{overflow-wrap:anywhere;text-align:left}
+.h-project-card .h-card-content-col,.h-project-card .h-card-topmeta,.h-project-card .h-card-stack,.h-project-card .h-card-tags{text-align:left}
+.h-project-card .h-card-image-shell{position:relative}
+.h-project-card .h-card-actions{display:flex;align-items:center;gap:10px}
+.h-project-card .h-card-actions .hero-action{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.h-project-card .h-card-tech{max-width:100%}
+.portfolio-nav .navbar-toggler:focus-visible,.portfolio-nav a:focus-visible,.contact-form-content :is(input,textarea,select,button):focus-visible{outline:3px solid #a9c9f4;outline-offset:3px}
+.contact-form-content .contact-input{max-width:100%}
+.home-section .hero-image{height:auto}
+@media(max-width:767px){
+  .horizontal-projects-list{width:100%;gap:16px!important}
+  .h-project-card .h-card-content-col{padding:20px!important}
+  .h-project-card .h-card-actions{flex-direction:column;align-items:stretch}
+  .h-project-card .h-card-actions .hero-action{width:100%;white-space:normal}
+  .project-discovery{max-width:100%;padding-inline:0!important}
+  .home-section .hero-actions{align-items:stretch}
+}
+@media(max-width:360px){.h-project-card .h-card-content-col{padding:16px!important}.home-section .hero-actions .hero-action{width:100%}}
