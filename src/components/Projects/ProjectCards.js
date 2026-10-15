@@ -32,6 +32,7 @@ function ProjectCards({
   reversed = false,
   index = 0,
   highlight,
+  status,
 }) {
   const alignIcon = reversed ? <CgFormatRight /> : <CgFormatLeft />;
 
@@ -54,11 +55,7 @@ function ProjectCards({
               </span>
             )}
           </div>
-          <img
-            src={imgPath}
-            alt={`${title} screenshot`}
-            className="h-card-image"
-          />
+          {imgPath ? <img src={imgPath} alt={`Illustration for ${title}`} className="h-card-image" loading="lazy" /> : <div className="h-card-image" role="img" aria-label={`${title} project visual`} style={{display:"flex",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#18182e,#423262)",color:"#e6dafa",minHeight:"220px",padding:"20px",textAlign:"center",fontSize:"clamp(18px,2vw,28px)",fontWeight:700}}>{title}</div>}
           <div className="h-card-image-border"></div>
         </div>
       </div>
@@ -77,6 +74,7 @@ function ProjectCards({
         </div>
 
         <h3 className="h-card-title">{title}</h3>
+        {status && <p style={{color:"#cabef2",fontSize:"0.85rem",marginBottom:"12px"}}>Project status: {status}</p>}
 
         <p className="h-card-description">{description}</p>
 
@@ -87,7 +85,7 @@ function ProjectCards({
               {stack.map((tech) => (
                 <span className="h-card-tech" key={tech} title={tech}>
                   <span className="h-card-tech-icon">
-                    {techIcons[tech] || <FaReact style={{ color: "#22d3ee" }} />}
+                    {techIcons[tech] || <FaCloudDownloadAlt style={{ color: "#22d3ee" }} />}
                   </span>
                   <span className="h-card-tech-name">{tech}</span>
                 </span>
