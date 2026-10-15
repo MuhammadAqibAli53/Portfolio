@@ -47,12 +47,12 @@ const socialLinks = [
     icon: <AiOutlineTwitter />,
   },
   {
-    href: "https://www.linkedin.com/in/muhammad-aqib-ali453?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    href: "https://www.linkedin.com/in/muhammad-aqib-ali453",
     label: "LinkedIn",
     icon: <FaLinkedinIn />,
   },
   {
-    href: "https://www.instagram.com/rana_aqib06?igsi=aDhwaWsxZ3p0MTcz",
+    href: "https://www.instagram.com/rana_aqib06",
     label: "Instagram",
     icon: <AiFillInstagram />,
   },
