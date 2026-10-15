@@ -23,21 +23,6 @@ const coreStack = [
   { name: "AI/ML", icon: <FaBrain /> },
 ];
 
-const achievements = [
-  {
-    value: "15+",
-    label: "Production Projects Shipped",
-  },
-  {
-    value: "99%",
-    label: "Client Satisfaction Rate",
-  },
-  {
-    value: "3+",
-    label: "Years of Professional Experience",
-  },
-];
-
 const strengths = [
   {
     title: "Frontend Architecture",
@@ -61,7 +46,7 @@ function Home2() {
           <Col lg={7} md={8} className="home-about-description">
             <span className="section-chip">About Me</span>
             <h1 className="home-about-title">
-              Expert Builder.{" "}
+              Software Developer.{" "}
               <span className="purple">Problem Solver.</span>
             </h1>
 
