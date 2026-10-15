@@ -107,7 +107,7 @@ function ProjectCards({
         )}
 
         <div className="h-card-actions">
-          <a
+          {ghLink && <a
             className="hero-action primary-action h-card-btn h-card-cta"
             href={ghLink}
             target="_blank"
@@ -116,7 +116,7 @@ function ProjectCards({
           >
             <BsGithub />
             &nbsp;{isBlog ? "Read Blog" : "View Source"}
-          </a>
+          </a>}
           {!isBlog && demoLink && (
             <a
               className="hero-action secondary-action h-card-btn h-card-live"
