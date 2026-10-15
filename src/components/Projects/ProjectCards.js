@@ -27,7 +27,7 @@ function ProjectCards({
   title,
   slug,
   description,
-  ghLink = "#",
+  ghLink,
   demoLink,
   tags = [],
   stack = [],
@@ -114,7 +114,7 @@ function ProjectCards({
             href={ghLink}
             target="_blank"
             rel="noreferrer"
-            aria-label={isBlog ? "Read Blog" : "View Source on GitHub"}
+            aria-label={isBlog ? `Read ${title} article` : `View source for ${title}`}
           >
             <BsGithub />
             &nbsp;{isBlog ? "Read Blog" : "View Source"}
@@ -125,7 +125,7 @@ function ProjectCards({
               href={demoLink}
               target="_blank"
               rel="noreferrer"
-              aria-label="Live Demo"
+              aria-label={`Open live demo for ${title}`}
             >
               <CgWebsite />
               &nbsp;Live Demo
