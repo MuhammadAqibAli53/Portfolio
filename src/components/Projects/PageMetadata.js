@@ -36,9 +36,9 @@ export default function PageMetadata() {
     updateMeta("property", "og:url", url);
     updateMeta("property", "og:type", project ? "article" : "website");
     updateMeta("name", "robots", "index,follow,max-image-preview:large");
-    const imageUrl = project && project.imgPath ? SITE + project.imgPath : SITE + "/favicon.png";
+    const imageUrl = project && project.imgPath ? SITE + project.imgPath : SITE + "/social-preview.png";
     updateMeta("property", "og:image", imageUrl);
-    updateMeta("property", "og:image:alt", project ? `Illustrative cover for ${project.title}` : "Muhammad Aqib Ali portfolio icon");
+    updateMeta("property", "og:image:alt", project ? `Illustrative cover for ${project.title}` : "Muhammad Aqib Ali software development portfolio preview");
     updateMeta("name", "twitter:image", imageUrl);
     updateMeta("name", "twitter:title", title);
     updateMeta("name", "twitter:description", description);
