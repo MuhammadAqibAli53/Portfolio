@@ -1,6 +1,30 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/seo/home.html"
+    },
+    {
+      "source": "/project",
+      "destination": "/seo/project.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/seo/about.html"
+    },
+    {
+      "source": "/resume",
+      "destination": "/seo/resume.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/seo/contact.html"
+    },
+    {
+      "source": "/project/:slug",
+      "destination": "/seo/projects/:slug.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
