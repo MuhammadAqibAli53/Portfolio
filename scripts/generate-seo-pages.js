@@ -35,7 +35,7 @@ function setMeta(html,attribute,name,content) {
 pages.forEach(p=>{
  let html=base;
  const url=site+p.route;
- const image=p.image?site+p.image:site+"/favicon.png";
+ const image=p.image?site+p.image:site+"/social-preview.png";
  html=html.replace(/<title>[\s\S]*?<\/title>/i,"<title>"+escape(p.title)+"</title>");
  html=html.replace(/<link\s+rel="canonical"[^>]*>/ig,"");
  html=html.replace("</head>",'<link rel="canonical" href="'+escape(url)+'">\n</head>');
@@ -43,9 +43,9 @@ pages.forEach(p=>{
  ["name","description",p.description],["name","robots","index,follow,max-image-preview:large"],
  ["property","og:title",p.title],["property","og:description",p.description],
  ["property","og:url",url],["property","og:type",p.image?"article":"website"],
- ["property","og:image",image],["property","og:image:alt",p.image?"Illustrative concept cover for "+p.title:"Muhammad Aqib Ali portfolio icon"],
+ ["property","og:image",image],["property","og:image:alt",p.image?"Illustrative concept cover for "+p.title:"Muhammad Aqib Ali software development portfolio preview"],
  ["name","twitter:title",p.title],["name","twitter:description",p.description],
- ["name","twitter:image",image]
+ ["name","twitter:image",image],["name","twitter:card","summary_large_image"]
  ];
  metas.forEach(([attr,key,content])=>{html=setMeta(html,attr,key,content);});
  const dest=path.join(build,"seo",p.out+".html");
